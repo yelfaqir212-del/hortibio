@@ -1,0 +1,18 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M58.823 12C38.857 14.376 24.209 26.21 18.732 43.475C15.933 52.293 16.581 62.335 21.293 68C25.533 61.314 31.669 56.387 38.623 52.813C31.583 55.371 25.821 59.531 21.841 65.594C20.598 59.171 21.427 52.278 24.32 46.149C30.687 32.648 45.35 22.543 62 19.116C61.299 16.615 60.251 14.244 58.823 12Z"
+    fill="url(#leaf-gradient)"
+  />
+  <path
+    d="M21.687 66.206C34.433 47.563 46.231 35.114 57.082 28.861"
+    stroke="#E7F8DA"
+    stroke-width="2.4"
+    stroke-linecap="round"
+  />
+  <defs>
+    <linearGradient id="leaf-gradient" x1="19" y1="68" x2="63" y2="12" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3EB963" />
+      <stop offset="1" stop-color="#BEE56F" />
+    </linearGradient>
+  </defs>
+</svg>
