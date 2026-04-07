@@ -8,9 +8,9 @@ const resources = {
   en: {
     translation: {
       nav: {
-        about: 'About',
+        about: 'About us',
         catalog: 'Products & Plants',
-        flow: 'Trade Flow',
+        flow: 'Services',
         ceo: 'CEO Word',
         contact: 'Contact',
       },
@@ -20,20 +20,20 @@ const resources = {
         products: 'Products',
       },
       hero: {
-        kicker: 'Agriculture import export',
-        title: 'Green trade engineered to arrive fresh, rooted, and ready.',
+        kicker: 'Agri-food sourcing and export',
+        title: 'Tailored agricultural trade, prepared to move with confidence across borders.',
         lead:
-          'Hortibio unites growers, nurseries, and international buyers through premium crops, resilient plant material, and disciplined export execution.',
+          'Hortibio connects growers, nurseries, importers, and distributors through fresh produce, plant material, and disciplined export execution.',
         primary: 'Open products tab',
-        secondary: 'Start a conversation',
-        panelTitle: 'Export command center',
+        secondary: 'Contact us',
+        panelTitle: 'Field to destination',
         panelCopy:
-          'Cold-chain planning, packhouse flow, and responsive market routing for fast-moving agricultural programs.',
-        panelFootnote: 'Products, plants, private label, destination timing.',
+          'Fresh produce, plant material, and export coordination shaped around the pace of your market.',
+        panelFootnote: 'Flexible sourcing, controlled finishing, and responsive routing.',
         floating: {
           products: 'Fresh products',
           plants: 'Plant material',
-          routing: 'Global routing',
+          routing: 'Export coordination',
         },
         stats: {
           partners: 'grower and nursery partners',
@@ -47,10 +47,10 @@ const resources = {
         },
       },
       about: {
-        eyebrow: 'Why Hortibio',
-        title: 'A sharper agricultural partner from sourcing to arrival.',
+        eyebrow: 'About us',
+        title: 'Who are we?',
         lead:
-          'We build supply programs that feel premium on the shelf and dependable through the chain.',
+          'Hortibio is a sourcing and export partner for fresh produce, plant material, and disciplined agricultural programs.',
         body:
           'From plant propagation to export-ready produce, Hortibio coordinates grading, packaging, compliance, and timing so every shipment protects freshness, shelf life, and market confidence.',
         tags: {
@@ -78,15 +78,15 @@ const resources = {
         },
       },
       catalog: {
-        eyebrow: 'Products',
-        title: 'A dedicated product tab with live search.',
+        eyebrow: 'Products and applications',
+        title: 'Products & Applications',
         lead:
-          'Switch between Products and Plants, then search character by character for instant matches.',
+          'From fresh produce to nursery material, Hortibio builds commercial lines that balance presentation, compliance, and reliable delivery.',
         tabsLabel: 'product groups',
-        liveLabel: 'Live index',
-        liveTitle: 'Products and plants stay searchable in one focused workspace.',
+        liveLabel: 'Signature ranges',
+        liveTitle: 'Collections shaped for distributors, retailers, growers, and project buyers.',
         liveBody:
-          'Type one character at a time to narrow the active tab instantly, with title-first ranking for a lightweight Elastic-style feel.',
+          'Each program is organized to protect freshness, plant vitality, and commercial confidence from source to destination.',
         filters: {
           products: 'Products',
           plants: 'Plants',
@@ -171,10 +171,10 @@ const resources = {
         },
       },
       process: {
-        eyebrow: 'Trade flow',
-        title: 'From farm and nursery to destination market.',
+        eyebrow: 'Why Hortibio',
+        title: 'Why Hortibio?',
         lead:
-          'A visually disciplined export sequence keeps crops beautiful and plants viable while moving fast.',
+          'Flexible service, export discipline, and tailored execution are built into every program.',
         steps: {
           network: {
             title: 'Origin network',
@@ -242,6 +242,12 @@ const resources = {
           plants: 'Plant programs',
         },
       },
+      trust: {
+        eyebrow: 'They trust us',
+        title: 'A sourcing partner chosen for consistency, flexibility, and destination-ready presentation.',
+        lead:
+          'Importers, retailers, growers, and project buyers work with Hortibio when the brief demands responsive coordination and dependable finish quality.',
+      },
       footer: {
         tag: 'Green supply chains for products and plants.',
       },
@@ -252,7 +258,7 @@ const resources = {
       nav: {
         about: 'A propos',
         catalog: 'Produits et plantes',
-        flow: 'Flux export',
+        flow: 'Services',
         ceo: 'Mot du CEO',
         contact: 'Contact',
       },
@@ -262,20 +268,20 @@ const resources = {
         products: 'Produits',
       },
       hero: {
-        kicker: 'Import export agricole',
-        title: 'Un commerce vert pense pour arriver frais, enraciné et prêt.',
+        kicker: 'Sourcing et export agroalimentaire',
+        title: 'Un commerce agricole sur mesure, prepare pour circuler avec confiance au dela des frontieres.',
         lead:
-          'Hortibio relie producteurs, pepinieres et acheteurs internationaux autour de cultures premium, de materiel vegetal solide et d une execution export rigoureuse.',
+          'Hortibio relie producteurs, pepinieres, importateurs et distributeurs autour de produits frais, de materiel vegetal et d une execution export rigoureuse.',
         primary: 'Ouvrir l onglet produits',
-        secondary: 'Demarrer un echange',
-        panelTitle: 'Centre de commande export',
+        secondary: 'Contactez-nous',
+        panelTitle: 'Du terrain a la destination',
         panelCopy:
-          'Planification de la chaine du froid, flux de conditionnement et orientation rapide vers les marches cibles.',
-        panelFootnote: 'Produits, plantes, marque privee, timing destination.',
+          'Produits frais, materiel vegetal et coordination export calibres selon le rythme de votre marche.',
+        panelFootnote: 'Sourcing flexible, finition controlee et routage reactif.',
         floating: {
           products: 'Produits frais',
           plants: 'Materiel vegetal',
-          routing: 'Routage global',
+          routing: 'Coordination export',
         },
         stats: {
           partners: 'partenaires producteurs et pepinieres',
@@ -289,10 +295,10 @@ const resources = {
         },
       },
       about: {
-        eyebrow: 'Pourquoi Hortibio',
-        title: 'Un partenaire agricole plus precis de la source a l arrivee.',
+        eyebrow: 'A propos',
+        title: 'Qui sommes-nous ?',
         lead:
-          'Nous construisons des programmes qui paraissent premium en rayon et fiables dans toute la chaine.',
+          'Hortibio est un partenaire sourcing et export pour les produits frais, le materiel vegetal et les programmes agricoles bien executes.',
         body:
           'De la propagation vegetale aux produits prets a l export, Hortibio coordonne tri, emballage, conformite et timing pour proteger la fraicheur, la tenue et la confiance du marche.',
         tags: {
@@ -320,15 +326,15 @@ const resources = {
         },
       },
       catalog: {
-        eyebrow: 'Produits',
-        title: 'Un onglet produit dedie avec recherche en direct.',
+        eyebrow: 'Produits et applications',
+        title: 'Produits et applications',
         lead:
-          'Basculez entre Produits et Plantes puis recherchez caractere par caractere pour obtenir des resultats immediats.',
+          'Des produits frais au materiel vegetal, Hortibio construit des lignes commerciales qui equilibrent presentation, conformite et livraison fiable.',
         tabsLabel: 'groupes produits',
-        liveLabel: 'Index live',
-        liveTitle: 'Produits et plantes restent consultables dans un espace dedie.',
+        liveLabel: 'Gammes signature',
+        liveTitle: 'Des collections pensees pour distributeurs, enseignes, producteurs et acheteurs projet.',
         liveBody:
-          'Tapez caractere par caractere pour reduire instantanement l onglet actif, avec un classement priorisant le titre pour un ressenti proche d Elastic.',
+          'Chaque programme est organise pour proteger la fraicheur, la vitalite vegetale et la confiance commerciale de la source a la destination.',
         filters: {
           products: 'Produits',
           plants: 'Plantes',
@@ -413,10 +419,10 @@ const resources = {
         },
       },
       process: {
-        eyebrow: 'Flux export',
-        title: 'De la ferme et de la pepiniere jusqu au marche destination.',
+        eyebrow: 'Pourquoi Hortibio',
+        title: 'Pourquoi Hortibio ?',
         lead:
-          'Une sequence export maitrisee garde les cultures belles et les plantes viables tout en gardant la vitesse.',
+          'Service flexible, discipline export et execution sur mesure sont integres a chaque programme.',
         steps: {
           network: {
             title: 'Reseau origine',
@@ -484,6 +490,12 @@ const resources = {
           plants: 'Programmes plantes',
         },
       },
+      trust: {
+        eyebrow: 'Ils nous font confiance',
+        title: 'Un partenaire sourcing choisi pour sa regularite, sa flexibilite et une presentation prete a la destination.',
+        lead:
+          'Importateurs, enseignes, producteurs et acheteurs projet travaillent avec Hortibio quand le cahier des charges exige coordination reactive et qualite de finition fiable.',
+      },
       footer: {
         tag: 'Des chaines vertes pour les produits et les plantes.',
       },
@@ -494,7 +506,7 @@ const resources = {
       nav: {
         about: 'من نحن',
         catalog: 'المنتجات والنباتات',
-        flow: 'مسار التصدير',
+        flow: 'الخدمات',
         ceo: 'كلمة المدير',
         contact: 'تواصل',
       },
@@ -504,20 +516,20 @@ const resources = {
         products: 'المنتجات',
       },
       hero: {
-        kicker: 'استيراد وتصدير زراعي',
-        title: 'تجارة خضراء مصممة لتصل طازجة، ثابتة، وجاهزة.',
+        kicker: 'توريد وتصدير زراعي غذائي',
+        title: 'تجارة زراعية مصممة حسب الطلب ومهيأة للتحرك بثقة عبر الحدود.',
         lead:
-          'هورتيبيو تربط بين المزارعين، المشاتل، والمشترين الدوليين عبر محاصيل متميزة، مواد نباتية قوية، وتنفيذ تصدير منضبط.',
+          'هورتيبيو تربط بين المزارعين والمشاتل والمستوردين والموزعين عبر منتجات طازجة ومادة نباتية وتنفيذ تصدير منضبط.',
         primary: 'افتح تبويب المنتجات',
-        secondary: 'ابدأ التواصل',
-        panelTitle: 'مركز قيادة التصدير',
+        secondary: 'اتصل بنا',
+        panelTitle: 'من الحقل الى الوجهة',
         panelCopy:
-          'تخطيط سلسلة التبريد، تدفق التعبئة، وتوجيه سريع نحو الاسواق المستهدفة للبرامج الزراعية المتحركة.',
-        panelFootnote: 'منتجات، نباتات، تعبئة خاصة، توقيت وصول.',
+          'منتجات طازجة ومادة نباتية وتنسيق تصدير مصمم حسب ايقاع سوقك.',
+        panelFootnote: 'توريد مرن وتشطيب مضبوط وتوجيه سريع.',
         floating: {
           products: 'منتجات طازجة',
           plants: 'مادة نباتية',
-          routing: 'توجيه عالمي',
+          routing: 'تنسيق التصدير',
         },
         stats: {
           partners: 'شركاء من المزارع والمشاتل',
@@ -531,10 +543,10 @@ const resources = {
         },
       },
       about: {
-        eyebrow: 'لماذا هورتيبيو',
-        title: 'شريك زراعي ادق من المصدر حتى الوصول.',
+        eyebrow: 'من نحن',
+        title: 'من نحن؟',
         lead:
-          'نبني برامج توريد تظهر بشكل فاخر على الرف وتبقى موثوقة عبر كامل السلسلة.',
+          'هورتيبيو شريك في التوريد والتصدير للمنتجات الطازجة والمادة النباتية والبرامج الزراعية المنضبطة.',
         body:
           'من اكثار النباتات الى المنتجات الجاهزة للتصدير، تنسق هورتيبيو الفرز، التعبئة، المطابقة، والتوقيت حتى يحافظ كل شحن على الطزاجة والعمر التسويقي وثقة السوق.',
         tags: {
@@ -562,15 +574,15 @@ const resources = {
         },
       },
       catalog: {
-        eyebrow: 'المنتجات',
-        title: 'تبويب منتجات مستقل مع بحث مباشر.',
+        eyebrow: 'المنتجات والتطبيقات',
+        title: 'المنتجات والتطبيقات',
         lead:
-          'بدل بين المنتجات والنباتات ثم ابحث حرفا بحرف للحصول على نتائج فورية.',
+          'من المنتجات الطازجة الى المادة النباتية، تبني هورتيبيو خطوطا تجارية توازن بين العرض والامتثال والتسليم الموثوق.',
         tabsLabel: 'مجموعات المنتجات',
-        liveLabel: 'فهرس مباشر',
-        liveTitle: 'المنتجات والنباتات قابلة للبحث داخل مساحة مستقلة ومركزة.',
+        liveLabel: 'مجموعات مميزة',
+        liveTitle: 'تشكيلات مصممة للموزعين وتجار التجزئة والمزارعين ومشتري المشاريع.',
         liveBody:
-          'اكتب حرفا بحرف لتضييق نتائج التبويب النشط مباشرة مع ترتيب يفضل العنوان ليعطي احساسا قريبا من Elastic.',
+          'كل برنامج منظم لحماية الطزاجة وحيوية النبات والثقة التجارية من المصدر حتى الوصول.',
         filters: {
           products: 'المنتجات',
           plants: 'النباتات',
@@ -655,10 +667,10 @@ const resources = {
         },
       },
       process: {
-        eyebrow: 'مسار التصدير',
-        title: 'من المزرعة والمشتل الى السوق النهائي.',
+        eyebrow: 'لماذا هورتيبيو',
+        title: 'لماذا هورتيبيو؟',
         lead:
-          'تسلسل تصدير منضبط بصريا يحافظ على جمال المحصول وحيوية النبات مع سرعة الحركة.',
+          'الخدمة المرنة والانضباط التصديري والتنفيذ المصمم حسب الحاجة موجودة داخل كل برنامج.',
         steps: {
           network: {
             title: 'شبكة المصدر',
@@ -725,6 +737,12 @@ const resources = {
           exports: 'جدولة التصدير',
           plants: 'برامج النباتات',
         },
+      },
+      trust: {
+        eyebrow: 'يثقون بنا',
+        title: 'شريك توريد يتم اختياره بسبب الثبات والمرونة وجودة العرض عند الوصول.',
+        lead:
+          'يعمل مع هورتيبيو المستوردون وتجار التجزئة والمزارعون ومشترو المشاريع عندما يتطلب الملف تنسيقا سريعا وجودة تنفيذ موثوقة.',
       },
       footer: {
         tag: 'سلاسل خضراء للمنتجات والنباتات.',
