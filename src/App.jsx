@@ -207,60 +207,62 @@ function App() {
           </nav>
 
           <div className="header-actions">
-            <div className="language-toggle" role="group" aria-label="language switcher">
-              {languages.map((language) => (
-                <button
-                  key={language.code}
-                  className={i18n.language === language.code ? 'active' : ''}
-                  onClick={() => {
-                    i18n.changeLanguage(language.code);
-                    closeMobileNav();
-                  }}
-                  type="button"
-                >
-                  {language.label}
-                </button>
-              ))}
-            </div>
+            <div className="header-tools">
+              <div className="language-toggle" role="group" aria-label="language switcher">
+                {languages.map((language) => (
+                  <button
+                    key={language.code}
+                    className={i18n.language === language.code ? 'active' : ''}
+                    onClick={() => {
+                      i18n.changeLanguage(language.code);
+                      closeMobileNav();
+                    }}
+                    type="button"
+                  >
+                    {language.label}
+                  </button>
+                ))}
+              </div>
 
-            <div className="theme-toggle" role="group" aria-label={t('nav.themeSwitcher')}>
-              <button
-                className={theme === 'light' ? 'active' : ''}
-                onClick={() => setTheme('light')}
-                type="button"
-                aria-pressed={theme === 'light'}
-                aria-label={t('nav.lightTheme')}
-                title={t('nav.lightTheme')}
-              >
-                <svg className="theme-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <circle cx="12" cy="12" r="4.25" stroke="currentColor" strokeWidth="1.8" />
-                  <path
-                    d="M12 2.75v2.5M12 18.75v2.5M21.25 12h-2.5M5.25 12h-2.5M18.54 5.46l-1.77 1.77M7.23 16.77l-1.77 1.77M18.54 18.54l-1.77-1.77M7.23 7.23 5.46 5.46"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                  />
-                </svg>
-                <span className="sr-only">{t('nav.lightTheme')}</span>
-              </button>
-              <button
-                className={theme === 'dark' ? 'active' : ''}
-                onClick={() => setTheme('dark')}
-                type="button"
-                aria-pressed={theme === 'dark'}
-                aria-label={t('nav.darkTheme')}
-                title={t('nav.darkTheme')}
-              >
-                <svg className="theme-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path
-                    d="M19.25 14.89A7.25 7.25 0 0 1 9.1 4.75a7.75 7.75 0 1 0 10.15 10.14Z"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <span className="sr-only">{t('nav.darkTheme')}</span>
-              </button>
+              <div className="theme-toggle" role="group" aria-label={t('nav.themeSwitcher')}>
+                <button
+                  className={theme === 'light' ? 'active' : ''}
+                  onClick={() => setTheme('light')}
+                  type="button"
+                  aria-pressed={theme === 'light'}
+                  aria-label={t('nav.lightTheme')}
+                  title={t('nav.lightTheme')}
+                >
+                  <svg className="theme-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4.25" stroke="currentColor" strokeWidth="1.8" />
+                    <path
+                      d="M12 2.75v2.5M12 18.75v2.5M21.25 12h-2.5M5.25 12h-2.5M18.54 5.46l-1.77 1.77M7.23 16.77l-1.77 1.77M18.54 18.54l-1.77-1.77M7.23 7.23 5.46 5.46"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                  <span className="sr-only">{t('nav.lightTheme')}</span>
+                </button>
+                <button
+                  className={theme === 'dark' ? 'active' : ''}
+                  onClick={() => setTheme('dark')}
+                  type="button"
+                  aria-pressed={theme === 'dark'}
+                  aria-label={t('nav.darkTheme')}
+                  title={t('nav.darkTheme')}
+                >
+                  <svg className="theme-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M19.25 14.89A7.25 7.25 0 0 1 9.1 4.75a7.75 7.75 0 1 0 10.15 10.14Z"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span className="sr-only">{t('nav.darkTheme')}</span>
+                </button>
+              </div>
             </div>
 
             <a className="header-cta" href="#contact" onClick={closeMobileNav}>
