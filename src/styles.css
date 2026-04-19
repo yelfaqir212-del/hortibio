@@ -275,8 +275,7 @@ section[id] {
 }
 
 .hero-grid,
-.story-copy-grid,
-.contact-header {
+.story-copy-grid {
   position: relative;
   z-index: 2;
   display: grid;
@@ -854,40 +853,58 @@ section[id] {
 
 .contact-card {
   background:
-    radial-gradient(circle at top right, rgba(209, 187, 121, 0.18), transparent 24%),
+    radial-gradient(circle at top right, rgba(209, 187, 121, 0.14), transparent 38%),
+    radial-gradient(circle at bottom left, rgba(155, 132, 47, 0.1), transparent 36%),
     linear-gradient(135deg, #17120c 0%, #0f0c07 100%);
   border-color: rgba(209, 187, 121, 0.16);
 }
 
-.contact-header {
-  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
-  align-items: start;
+/* Particle canvas fills the card */
+.contact-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* All content above particles */
+.contact-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+.contact-logo-center {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .footer-mark {
-  box-shadow: 0 18px 34px rgba(209, 187, 121, 0.12);
+  box-shadow: 0 18px 34px rgba(209, 187, 121, 0.16);
 }
 
-.contact-brand p {
-  margin: 0.25rem 0 0;
-  max-width: 24rem;
-  color: rgba(255, 244, 225, 0.68);
-}
-
-.contact-copy .section-title h2 {
+.contact-inner .section-title h2 {
   color: #fff8ec;
 }
 
-.contact-copy .section-title p {
+.contact-inner .section-title p {
   color: rgba(255, 244, 225, 0.72);
+}
+
+.section-title.center {
+  text-align: center;
 }
 
 .contact-actions-grid {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
-  margin-top: 2rem;
 }
 
 .contact-icon-btn {
@@ -995,7 +1012,6 @@ section[id] {
   .hero-grid,
   .story-copy-grid,
   .catalog-header,
-  .contact-header,
   .ceo-card {
     grid-template-columns: 1fr;
   }
