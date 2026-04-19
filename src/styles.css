@@ -174,8 +174,7 @@ img {
 
 .header-cta,
 .button-primary,
-.showcase-link,
-.contact-request {
+.showcase-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -208,12 +207,10 @@ img {
 .button-primary:hover,
 .button-secondary:hover,
 .showcase-link:hover,
-.contact-request:hover,
 .header-cta:focus-visible,
 .button-primary:focus-visible,
 .button-secondary:focus-visible,
-.showcase-link:focus-visible,
-.contact-request:focus-visible {
+.showcase-link:focus-visible {
   transform: translateY(-2px);
 }
 
@@ -441,8 +438,7 @@ section[id] {
 .commitment-card,
 .trust-mark,
 .ceo-card,
-.contact-card,
-.contact-mail {
+.contact-card {
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
 }
@@ -839,8 +835,7 @@ section[id] {
   color: rgba(255, 244, 225, 0.72);
 }
 
-.ceo-copy strong,
-.contact-mail strong {
+.ceo-copy strong {
   display: inline-block;
   margin-top: 1rem;
   color: #fff1d0;
@@ -888,27 +883,59 @@ section[id] {
 }
 
 .contact-actions-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 1rem;
   margin-top: 2rem;
 }
 
-.contact-mail {
-  padding: 1.35rem 1.45rem;
-  border-radius: 28px;
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.08);
+.contact-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1rem 1.6rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: transform 200ms ease, background 200ms ease, box-shadow 200ms ease;
 }
 
-.contact-mail span {
-  display: block;
-  color: rgba(255, 244, 225, 0.66);
+.contact-icon-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
 }
 
-.contact-mail strong {
-  margin-top: 0.4rem;
-  font-size: clamp(1.25rem, 3vw, 1.9rem);
+.contact-icon-btn svg {
+  flex-shrink: 0;
+}
+
+.contact-email-btn {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 245, 226, 0.18);
+  color: #fff8ec;
+}
+
+.contact-email-btn:hover {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.contact-whatsapp-btn {
+  display: none;
+  background: #25d366;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.contact-whatsapp-btn:hover {
+  background: #1ebe58;
+}
+
+@media (max-width: 768px) {
+  .contact-whatsapp-btn {
+    display: inline-flex;
+  }
 }
 
 .contact-tags {
