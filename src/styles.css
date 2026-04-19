@@ -174,6 +174,32 @@ img.contact-logo {
   transition: color 180ms ease;
 }
 
+.site-nav a {
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--green);
+  transform: scaleX(0);
+  transition: transform 240ms ease;
+}
+
+.site-nav a.nav-active {
+  color: var(--green);
+}
+
+.site-nav a.nav-active::after {
+  transform: scaleX(1);
+}
+
 .site-nav a:hover,
 .site-nav a:focus-visible,
 .footer-mail:hover,
@@ -1065,12 +1091,16 @@ section[id] {
   padding-left: 0;
 }
 
+/* ── 1100px: tablet landscape ─────────────────────────────────────────────── */
 @media (max-width: 1100px) {
   .hero-grid,
   .story-copy-grid,
-  .catalog-header,
-  .ceo-card {
+  .catalog-header {
     grid-template-columns: 1fr;
+  }
+
+  .ceo-card {
+    grid-template-columns: 10rem minmax(0, 1fr);
   }
 
   .showcase-grid,
@@ -1094,9 +1124,11 @@ section[id] {
   }
 }
 
+/* ── 900px: tablet portrait ───────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .site-header {
     border-radius: 32px;
+    gap: 0.75rem 1rem;
   }
 
   .site-nav {
@@ -1105,14 +1137,26 @@ section[id] {
     justify-content: flex-start;
     overflow-x: auto;
     padding-bottom: 0.25rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
 
-  .hero-stats,
+  .site-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* keep stats as 3 cols — they're compact enough */
   .contact-actions-grid {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .section-title h2 {
+    font-size: clamp(2.4rem, 5vw, 4.7rem);
   }
 }
 
+/* ── 720px: mobile ────────────────────────────────────────────────────────── */
 @media (max-width: 720px) {
   .site-header,
   .site-main > section,
@@ -1121,60 +1165,195 @@ section[id] {
     width: min(100%, calc(100% - 1rem));
   }
 
+  /* hide header CTA — hero already has the CTAs */
+  .header-cta {
+    display: none;
+  }
+
   .site-main {
     padding-top: 1.5rem;
   }
 
+  /* hero */
   .hero-stage {
     min-height: auto;
-    border-radius: 34px;
+    border-radius: 30px;
+    padding: 1.5rem;
   }
 
   .hero-title {
-    font-size: clamp(3rem, 14vw, 4.7rem);
+    font-size: clamp(2.6rem, 12vw, 4rem);
+    max-width: none;
   }
 
+  .hero-lead {
+    font-size: 0.98rem;
+  }
+
+  /* hide the floating note panel — keep pills */
+  .hero-note {
+    display: none;
+  }
+
+  /* hero stats: keep 3 cols with smaller padding */
+  .hero-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+
+  .stat-card {
+    padding: 1rem 0.8rem;
+  }
+
+  .stat-card strong {
+    font-size: 1.6rem;
+  }
+
+  .stat-card span {
+    font-size: 0.8rem;
+  }
+
+  /* sections */
   .section-frame,
   .catalog-shell,
   .contact-card,
   .ceo-card {
     padding: 1.3rem;
-    border-radius: 30px;
+    border-radius: 26px;
   }
 
+  .section-title h2 {
+    font-size: clamp(2.2rem, 9vw, 3.5rem);
+  }
+
+  /* grids: single column */
   .showcase-grid,
   .reason-grid,
   .process-strip,
-  .commitment-grid,
+  .commitment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* trust marks: 2 cols looks intentional */
   .trust-marks {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  /* gallery: 2 cols on mobile */
   .gallery-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
   }
 
-  .gallery-card:nth-child(1),
-  .gallery-card:nth-child(2),
-  .gallery-card:nth-child(3),
-  .gallery-card:nth-child(4),
-  .gallery-card:nth-child(5),
-  .gallery-card:nth-child(6) {
+  .gallery-card:nth-child(n) {
     grid-column: auto;
   }
 
   .gallery-card {
-    min-height: 18rem;
+    min-height: 14rem;
+    border-radius: 22px;
+  }
+
+  /* CEO */
+  .ceo-card {
+    grid-template-columns: 1fr;
   }
 
   .ceo-mark {
-    width: 11rem;
+    width: 8rem;
+    font-size: 4.5rem;
   }
 
+  /* contact */
+  .contact-icon-btn {
+    justify-content: center;
+  }
+
+  /* footer */
   .site-footer {
     flex-direction: column;
     align-items: flex-start;
+    gap: 0.5rem;
     padding-bottom: 1.5rem;
+  }
+}
+
+/* ── 480px: small phones ──────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .site-header {
+    padding: 0.75rem 0.9rem;
+    border-radius: 24px;
+    top: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .brand-wordmark {
+    font-size: 0.88rem;
+    letter-spacing: 0.12em;
+  }
+
+  .language-toggle button {
+    padding: 0.42rem 0.6rem;
+    font-size: 0.82rem;
+  }
+
+  .hero-stage {
+    border-radius: 22px;
+    padding: 1.25rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 11vw, 3rem);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .button-primary,
+  .button-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-stats {
+    gap: 0.5rem;
+  }
+
+  .stat-card {
+    padding: 0.85rem 0.6rem;
+  }
+
+  .stat-card strong {
+    font-size: 1.4rem;
+  }
+
+  .stat-card span {
+    font-size: 0.74rem;
+  }
+
+  /* gallery single col on very small screens */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-card {
+    min-height: 16rem;
+  }
+
+  .trust-marks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .section-title h2 {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+  }
+
+  .section-frame,
+  .catalog-shell,
+  .contact-card {
+    border-radius: 22px;
   }
 }
 

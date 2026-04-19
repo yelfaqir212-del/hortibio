@@ -56,11 +56,30 @@ const riseUp = (delay = 0) => ({
 function App() {
   const { t, i18n } = useTranslation();
   const [heroVideoIndex, setHeroVideoIndex] = useState(0);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     document.documentElement.lang = i18n.language;
     document.documentElement.dir = i18n.dir(i18n.language);
   }, [i18n, i18n.language]);
+
+  useEffect(() => {
+    const ids = ['home', 'about', 'catalog', 'flow', 'ceo', 'contact'];
+    const observers = [];
+
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
+        { rootMargin: '-30% 0px -60% 0px', threshold: 0 }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+
+    return () => observers.forEach((obs) => obs.disconnect());
+  }, []);
 
   const showcaseCards = [
     {
@@ -114,7 +133,11 @@ function App() {
 
         <nav className="site-nav" aria-label="Primary">
           {navItems.map((item) => (
-            <a key={item} href={`#${item}`}>
+            <a
+              key={item}
+              href={`#${item}`}
+              className={activeSection === item ? 'nav-active' : ''}
+            >
               {t(`nav.${item}`)}
             </a>
           ))}
@@ -402,22 +425,15 @@ function App() {
         </section>
 
         <footer className="site-footer">
-          <p>Copyright © Hortibio</p>
-
-          <div className="footer-meta">
-            <a className="footer-mail" href={`mailto:${t('contact.email')}`}>
-              {t('contact.email')}
-            </a>
-            <span className="footer-divider" aria-hidden="true">·</span>
-            <a
-              className="footer-credit"
-              href="https://www.brandea.ma"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Created by Brandea Brand Builders
-            </a>
-          </div>
+          <p>Copyright © 2026 — Owned by Horti Bio</p>
+          <a
+            className="footer-credit"
+            href="https://www.brandea.ma"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Created by Brandea Brand Builders
+          </a>
         </footer>
       </div>
     </div>
