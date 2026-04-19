@@ -17,6 +17,18 @@ import {
 const navItems = ['about', 'catalog', 'flow', 'ceo', 'contact'];
 
 const heroVideos = ['/VD01.mp4', '/Vd02.mp4', '/VD03.mp4'];
+const themeStorageKey = 'hortibio-theme';
+
+const getInitialTheme = () => {
+  if (typeof window === 'undefined') return 'light';
+
+  const savedTheme = window.localStorage.getItem(themeStorageKey);
+  if (savedTheme === 'light' || savedTheme === 'dark') {
+    return savedTheme;
+  }
+
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+};
 
 const imgs = {
   appleRedGreen:  '/WhatsApp%20Image%202026-04-04%20at%2021.33.10.jpeg',
@@ -54,11 +66,18 @@ function App() {
   const [heroVideoIndex, setHeroVideoIndex] = useState(0);
   const [activeSection, setActiveSection] = useState('');
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [theme, setTheme] = useState(getInitialTheme);
 
   useEffect(() => {
     document.documentElement.lang = i18n.language;
     document.documentElement.dir = i18n.dir(i18n.language);
   }, [i18n, i18n.language]);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+    window.localStorage.setItem(themeStorageKey, theme);
+  }, [theme]);
 
   useEffect(() => {
     if (!isMobileNavOpen) return undefined;
@@ -202,6 +221,25 @@ function App() {
                   {language.label}
                 </button>
               ))}
+            </div>
+
+            <div className="theme-toggle" role="group" aria-label={t('nav.themeSwitcher')}>
+              <button
+                className={theme === 'light' ? 'active' : ''}
+                onClick={() => setTheme('light')}
+                type="button"
+                aria-pressed={theme === 'light'}
+              >
+                {t('nav.lightTheme')}
+              </button>
+              <button
+                className={theme === 'dark' ? 'active' : ''}
+                onClick={() => setTheme('dark')}
+                type="button"
+                aria-pressed={theme === 'dark'}
+              >
+                {t('nav.darkTheme')}
+              </button>
             </div>
 
             <a className="header-cta" href="#contact" onClick={closeMobileNav}>

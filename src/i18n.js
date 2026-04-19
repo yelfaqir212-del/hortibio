@@ -14,6 +14,9 @@ const fr = {
     contact: "Contact",
     openMenu: "Ouvrir le menu",
     closeMenu: "Fermer le menu",
+    themeSwitcher: "Choix du thème",
+    lightTheme: "Clair",
+    darkTheme: "Sombre",
   },
   hero: {
     kicker:       "Votre partenaire de référence en solutions agricoles au Maroc",
@@ -216,6 +219,9 @@ const en = {
     contact: 'Contact',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
+    themeSwitcher: 'Theme switcher',
+    lightTheme: 'Light',
+    darkTheme: 'Dark',
   },
   hero: {
     kicker:       'Your reference partner for agricultural solutions in Morocco',
@@ -418,6 +424,9 @@ const ar = {
     contact: 'تواصل',
     openMenu: 'فتح القائمة',
     closeMenu: 'إغلاق القائمة',
+    themeSwitcher: 'مبدل السمة',
+    lightTheme: 'فاتح',
+    darkTheme: 'داكن',
   },
   hero: {
     kicker:       'شريكك المرجعي في الحلول الزراعية بالمغرب',
