@@ -16,11 +16,7 @@ import {
 
 const navItems = ['about', 'catalog', 'flow', 'ceo', 'contact'];
 
-const heroVideos = [
-  { webm: '/VD01.webm', mp4: '/VD01.mp4' },
-  { webm: '/Vd02.webm', mp4: '/Vd02.mp4' },
-  { webm: '/VD03.webm', mp4: '/VD03.mp4' },
-];
+const heroVideos = ['/VD01.mp4', '/Vd02.mp4', '/VD03.mp4'];
 
 const imgs = {
   appleRedGreen:  '/WhatsApp%20Image%202026-04-04%20at%2021.33.10.jpeg',
@@ -57,11 +53,42 @@ function App() {
   const { t, i18n } = useTranslation();
   const [heroVideoIndex, setHeroVideoIndex] = useState(0);
   const [activeSection, setActiveSection] = useState('');
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.lang = i18n.language;
     document.documentElement.dir = i18n.dir(i18n.language);
   }, [i18n, i18n.language]);
+
+  useEffect(() => {
+    if (!isMobileNavOpen) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setIsMobileNavOpen(false);
+      }
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isMobileNavOpen]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 900) {
+        setIsMobileNavOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const ids = ['home', 'about', 'catalog', 'flow', 'ceo', 'contact'];
@@ -123,43 +150,64 @@ function App() {
     t('contact.cards.plants'),
   ];
 
+  const closeMobileNav = () => setIsMobileNavOpen(false);
+
   return (
     <div className="app-shell">
-      <header className="site-header">
-        <a className="brand-lockup" href="#home">
+      <header className={`site-header ${isMobileNavOpen ? 'menu-open' : ''}`}>
+        <a className="brand-lockup" href="#home" onClick={closeMobileNav}>
           <img src="/logohortibio.svg" className="brand-logo" alt="Hortibio" />
           <span className="brand-wordmark">hortibio</span>
         </a>
 
-        <nav className="site-nav" aria-label="Primary">
-          {navItems.map((item) => (
-            <a
-              key={item}
-              href={`#${item}`}
-              className={activeSection === item ? 'nav-active' : ''}
-            >
-              {t(`nav.${item}`)}
-            </a>
-          ))}
-        </nav>
+        <button
+          className={`menu-toggle ${isMobileNavOpen ? 'active' : ''}`}
+          type="button"
+          aria-expanded={isMobileNavOpen}
+          aria-controls="site-navigation"
+          aria-label={isMobileNavOpen ? t('nav.closeMenu') : t('nav.openMenu')}
+          onClick={() => setIsMobileNavOpen((open) => !open)}
+        >
+          <span className="menu-toggle-line" />
+          <span className="menu-toggle-line" />
+          <span className="menu-toggle-line" />
+        </button>
 
-        <div className="header-actions">
-          <div className="language-toggle" role="group" aria-label="language switcher">
-            {languages.map((language) => (
-              <button
-                key={language.code}
-                className={i18n.language === language.code ? 'active' : ''}
-                onClick={() => i18n.changeLanguage(language.code)}
-                type="button"
+        <div className={`header-panel ${isMobileNavOpen ? 'is-open' : ''}`}>
+          <nav className={`site-nav ${isMobileNavOpen ? 'is-open' : ''}`} id="site-navigation" aria-label="Primary">
+            {navItems.map((item) => (
+              <a
+                key={item}
+                href={`#${item}`}
+                className={activeSection === item ? 'nav-active' : ''}
+                onClick={closeMobileNav}
               >
-                {language.label}
-              </button>
+                {t(`nav.${item}`)}
+              </a>
             ))}
-          </div>
+          </nav>
 
-          <a className="header-cta" href="#contact">
-            {t('hero.secondary')}
-          </a>
+          <div className="header-actions">
+            <div className="language-toggle" role="group" aria-label="language switcher">
+              {languages.map((language) => (
+                <button
+                  key={language.code}
+                  className={i18n.language === language.code ? 'active' : ''}
+                  onClick={() => {
+                    i18n.changeLanguage(language.code);
+                    closeMobileNav();
+                  }}
+                  type="button"
+                >
+                  {language.label}
+                </button>
+              ))}
+            </div>
+
+            <a className="header-cta" href="#contact" onClick={closeMobileNav}>
+              {t('hero.secondary')}
+            </a>
+          </div>
         </div>
       </header>
 
@@ -179,8 +227,7 @@ function App() {
               playsInline
               onEnded={() => setHeroVideoIndex((i) => (i + 1) % heroVideos.length)}
             >
-              <source src={heroVideos[heroVideoIndex].webm} type="video/webm" />
-              <source src={heroVideos[heroVideoIndex].mp4} type="video/mp4" />
+              <source src={heroVideos[heroVideoIndex]} type="video/mp4" />
             </video>
 
             <div className="hero-grid">

@@ -12,6 +12,8 @@ const fr = {
     flow:    "Pourquoi nous",
     ceo:     "Notre vision",
     contact: "Contact",
+    openMenu: "Ouvrir le menu",
+    closeMenu: "Fermer le menu",
   },
   hero: {
     kicker:       "Votre partenaire de référence en solutions agricoles au Maroc",
@@ -20,20 +22,20 @@ const fr = {
     secondary:    "Contactez-nous",
     panelTitle:   "Notre mission",
     panelCopy:    "Accompagner chaque agriculteur dans toutes les dimensions de son exploitation, du plant à la structure.",
-    panelFootnote:"Plants biologiques · Filets de protection · Structures agricoles",
+    panelFootnote:"Plantes biologiques · Filets de protection · Structures agricoles",
     floating: {
-      products: "Plants certifiés",
+      products: "Plantes certifiées",
       plants:   "Protection des cultures",
       routing:  "Structures agricoles",
     },
     stats: {
       sectors:   "secteurs d'activité",
       partners:  "agriculteurs partenaires",
-      certified: "plants certifiés garantis",
+      certified: "plantes certifiées garanties",
     },
     pills: {
       hailNet: "Filet Anti-Grêle",
-      plants:  "Plants Certifiés",
+      plants:  "Plantes Certifiées",
       poles:   "Poteaux Précontraints",
     },
   },
@@ -51,7 +53,7 @@ const fr = {
   },
   advantages: {
     programs: {
-      title: "Plants de qualité supérieure",
+      title: "Plantes de qualité supérieure",
       copy:  "Nous importons et commercialisons des plants certifiés, soigneusement sélectionnés auprès des meilleurs producteurs à l'international, adaptés aux conditions climatiques et pédologiques du Maroc.",
     },
     quality: {
@@ -71,15 +73,15 @@ const fr = {
     liveTitle: "Des produits sélectionnés pour la performance et la durabilité de votre exploitation.",
     liveBody:  "Chaque solution est conçue pour répondre aux exigences spécifiques des agriculteurs marocains et aux conditions du terrain.",
     groups: {
-      plants:      "Plants",
+      plants:      "Plantes",
       protection:  "Protection",
       accessories: "Accessoires",
       structures:  "Structures",
     },
     items: {
       certifiedPlants: {
-        title:   "Plants Certifiés Importés",
-        teaser:  "Des plants de haute qualité, soigneusement sélectionnés auprès des meilleurs producteurs mondiaux.",
+        title:   "Plantes Certifiées Importées",
+        teaser:  "Des plantes de haute qualité, soigneusement sélectionnées auprès des meilleurs producteurs mondiaux.",
         summary: "Variétés adaptées aux conditions climatiques et pédologiques du Maroc pour une production optimale.",
         detail:  "Chez Horti Bio, nous sommes spécialisés dans l'importation et la commercialisation des plants certifiés, soigneusement sélectionnés auprès des meilleurs producteurs à l'international. Nous mettons notre expertise au service des agriculteurs et exploitants marocains en leur proposant des plants de haute qualité, adaptés aux conditions climatiques et pédologiques du Maroc.",
         metric:  "Certifiés & contrôlés",
@@ -189,7 +191,7 @@ const fr = {
     email:     "contact@hortibio.ma",
     action:    "Demander un devis",
     cards: {
-      imports: "Plants certifiés",
+      imports: "Plantes certifiées",
       exports: "Filets de protection",
       plants:  "Structures agricoles",
     },
@@ -212,6 +214,8 @@ const en = {
     flow:    'Why us',
     ceo:     'Our vision',
     contact: 'Contact',
+    openMenu: 'Open menu',
+    closeMenu: 'Close menu',
   },
   hero: {
     kicker:       'Your reference partner for agricultural solutions in Morocco',
@@ -412,6 +416,8 @@ const ar = {
     flow:    'لماذا نحن',
     ceo:     'رؤيتنا',
     contact: 'تواصل',
+    openMenu: 'فتح القائمة',
+    closeMenu: 'إغلاق القائمة',
   },
   hero: {
     kicker:       'شريكك المرجعي في الحلول الزراعية بالمغرب',
