@@ -178,6 +178,7 @@ const fr = {
     title:     "Être le partenaire de confiance de chaque agriculteur marocain.",
     quote:     "Notre vision est d'être le partenaire de référence des agriculteurs au Maroc, en offrant une gamme complète de solutions — du plant biologique aux équipements de protection et de structure — pour une agriculture performante, durable et résiliente.",
     note:      "Notre mission est d'accompagner les agriculteurs dans toutes les dimensions de leur exploitation, pour que chaque parcelle dispose des meilleurs outils pour produire plus, mieux et durablement.",
+    name:      "Driss Erraou",
     signature: "Fondateur, Horti Bio",
   },
   contact: {
@@ -377,6 +378,7 @@ const en = {
     title:     'To be the trusted partner of every Moroccan farmer.',
     quote:     'Our vision is to be the reference partner for farmers in Morocco, offering a complete range of solutions — from organic plants to protection equipment and structures — for high-performance, sustainable, and resilient agriculture.',
     note:      'Our mission is to support farmers in all dimensions of their operation, so every farm has the best tools to produce more, better, and sustainably.',
+    name:      'Driss Erraou',
     signature: 'Founder, Horti Bio',
   },
   contact: {
@@ -576,6 +578,7 @@ const ar = {
     title:     'أن نكون الشريك الموثوق لكل مزارع مغربي.',
     quote:     'رؤيتنا هي أن نكون الشريك المرجعي للمزارعين في المغرب، بتقديم مجموعة متكاملة من الحلول — من الشتلات البيولوجية إلى معدات الحماية والهياكل — من أجل زراعة عالية الأداء ومستدامة وصامدة.',
     note:      'مهمتنا هي مرافقة المزارعين في جميع أبعاد استغلالياتهم، لأن كل حقل يستحق أفضل الأدوات للإنتاج أكثر وأفضل وباستدامة.',
+    name:      'درس الراو',
     signature: 'مؤسس هورتي بيو',
   },
   contact: {

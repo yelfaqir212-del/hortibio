@@ -11,7 +11,7 @@ const options = {
       density: { enable: true, area: 900 },
     },
     color: {
-      value: ['#d1bb79', '#ffffff', '#9b842f', '#e8d9a8'],
+      value: ['#3da854', '#2878ba', '#d1bb79', '#52c472', '#6aabde', '#a8d5b0'],
     },
     shape: { type: 'circle' },
     opacity: {
@@ -31,9 +31,9 @@ const options = {
     },
     links: {
       enable: true,
-      color: '#d1bb79',
+      color: '#3da854',
       distance: 140,
-      opacity: 0.1,
+      opacity: 0.12,
       width: 0.7,
     },
   },

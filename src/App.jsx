@@ -108,7 +108,7 @@ function App() {
     <div className="app-shell">
       <header className="site-header">
         <a className="brand-lockup" href="#home">
-          <span className="brand-mark">H</span>
+          <img src="/logohortibio.svg" className="brand-logo" alt="Hortibio" />
           <span className="brand-wordmark">hortibio</span>
         </a>
 
@@ -347,7 +347,8 @@ function App() {
               <h2>{t('ceo.title')}</h2>
               <blockquote>{t('ceo.quote')}</blockquote>
               <p>{t('ceo.note')}</p>
-              <strong>{t('ceo.signature')}</strong>
+              <strong>{t('ceo.name')}</strong>
+              <span className="ceo-role">{t('ceo.signature')}</span>
             </div>
           </motion.div>
         </section>
@@ -360,7 +361,7 @@ function App() {
 
             <div className="contact-inner">
               <div className="contact-logo-center">
-                <span className="brand-mark footer-mark">H</span>
+                <img src="/logohortibio.svg" className="brand-logo contact-logo" alt="Hortibio" />
                 <strong className="contact-brand-wordmark">hortibio</strong>
               </div>
 
