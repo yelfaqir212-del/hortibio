@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { SectionTitle } from './components/SectionTitle';
@@ -15,42 +15,46 @@ import {
 
 const navItems = ['about', 'catalog', 'flow', 'ceo', 'contact'];
 
-const heroImage =
-  'https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=1600&q=80';
+const heroVideos = [
+  { webm: '/VD01.webm', mp4: '/VD01.mp4' },
+  { webm: '/Vd02.webm', mp4: '/Vd02.mp4' },
+  { webm: '/VD03.webm', mp4: '/VD03.mp4' },
+];
 
-const visualSources = {
-  produce:
-    'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80',
-  field:
-    'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80',
-  plant:
-    'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80',
-  herbs:
-    'https://images.unsplash.com/photo-1461354464878-ad92f492a5a0?auto=format&fit=crop&w=1200&q=80',
+const imgs = {
+  appleRedGreen:  '/WhatsApp%20Image%202026-04-04%20at%2021.33.10.jpeg',
+  appleSaplings:  '/WhatsApp%20Image%202026-04-04%20at%2021.33.10%20%281%29.jpeg',
+  appleBloom:     '/WhatsApp%20Image%202026-04-04%20at%2021.33.12.jpeg',
+  orchardRows:    '/WhatsApp%20Image%202026-04-04%20at%2021.33.13%20%282%29.jpeg',
+  appleGreen:     '/WhatsApp%20Image%202026-04-07%20at%2017.27.13.jpeg',
+  appleRed:       '/WhatsApp%20Image%202026-04-07%20at%2017.27.13%20%282%29.jpeg',
+  greenhouse:     '/WhatsApp%20Image%202026-04-14%20at%2014.46.33.jpeg',
+  appleYellow:    '/WhatsApp%20Image%202026-04-14%20at%2014.46.47.jpeg',
+  nurseryField:   '/WhatsApp%20Image%202026-04-14%20at%2014.48.34.jpeg',
+  aerialFarm:     '/DJI_0130.jpg',
+  aerialWorkers:  '/DJI_0162.jpg',
+  netStructure:   '/DSC01537.jpg',
 };
 
 const catalogVisuals = {
-  atlasCitrus: visualSources.produce,
-  sunvineTomatoes: visualSources.produce,
-  emeraldHerbs: visualSources.herbs,
-  oliveSaplings: visualSources.plant,
-  berrySeedlings: visualSources.plant,
-  signaturePalms: visualSources.field,
+  certifiedPlants: imgs.appleRedGreen,
+  hailNet:         imgs.netStructure,
+  shadingNet:      imgs.greenhouse,
+  poles:           imgs.aerialFarm,
+  accessories:     imgs.aerialWorkers,
+  windMachine:     imgs.orchardRows,
 };
 
 const riseUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.2 },
-  transition: {
-    duration: 0.75,
-    delay,
-    ease: [0.22, 1, 0.36, 1],
-  },
+  transition: { duration: 0.75, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
 function App() {
   const { t, i18n } = useTranslation();
+  const [heroVideoIndex, setHeroVideoIndex] = useState(0);
 
   useEffect(() => {
     document.documentElement.lang = i18n.language;
@@ -60,36 +64,36 @@ function App() {
   const showcaseCards = [
     {
       id: 'products',
-      image: visualSources.produce,
+      image: imgs.appleRedGreen,
       title: t('hero.floating.products'),
-      text: t('catalog.items.atlasCitrus.summary'),
+      text: t('catalog.items.certifiedPlants.summary'),
       anchor: '#catalog',
       cta: t('nav.catalog'),
     },
     {
       id: 'plants',
-      image: visualSources.plant,
+      image: imgs.netStructure,
       title: t('hero.floating.plants'),
-      text: t('catalog.items.oliveSaplings.summary'),
+      text: t('catalog.items.hailNet.summary'),
       anchor: '#catalog',
       cta: t('nav.catalog'),
     },
     {
       id: 'routing',
-      image: visualSources.field,
+      image: imgs.aerialFarm,
       title: t('hero.floating.routing'),
-      text: t('process.lead'),
-      anchor: '#flow',
-      cta: t('nav.flow'),
+      text: t('catalog.items.poles.summary'),
+      anchor: '#catalog',
+      cta: t('nav.catalog'),
     },
   ];
 
   const trustMarks = [
-    t('about.tags.wholesale'),
-    t('about.tags.retail'),
+    t('about.tags.import'),
+    t('about.tags.protection'),
     t('contact.cards.imports'),
     t('contact.cards.exports'),
-    t('about.tags.landscaping'),
+    t('about.tags.accessories'),
     t('contact.cards.plants'),
   ];
 
@@ -139,17 +143,26 @@ function App() {
         <section className="hero-section" id="home">
           <motion.div
             className="hero-stage"
-            style={{ '--hero-image': `url("${heroImage}")` }}
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
+            <video
+              className="hero-video"
+              key={heroVideoIndex}
+              autoPlay
+              muted
+              playsInline
+              onEnded={() => setHeroVideoIndex((i) => (i + 1) % heroVideos.length)}
+            >
+              <source src={heroVideos[heroVideoIndex].webm} type="video/webm" />
+              <source src={heroVideos[heroVideoIndex].mp4} type="video/mp4" />
+            </video>
+
             <div className="hero-grid">
               <div className="hero-copy">
                 <span className="section-eyebrow hero-eyebrow">{t('hero.kicker')}</span>
-                <h1 className="hero-title">
-                  <span>{t('hero.title')}</span>
-                </h1>
+                <h1 className="hero-title">{t('hero.title')}</h1>
                 <p className="hero-lead">{t('hero.lead')}</p>
 
                 <div className="hero-actions">
@@ -326,9 +339,7 @@ function App() {
 
         <section className="ceo-section" id="ceo">
           <motion.div className="ceo-card" {...riseUp()}>
-            <div className="ceo-mark" aria-hidden="true">
-              H
-            </div>
+            <div className="ceo-mark" aria-hidden="true">H</div>
 
             <div className="ceo-copy">
               <span className="section-eyebrow on-dark">{t('ceo.eyebrow')}</span>

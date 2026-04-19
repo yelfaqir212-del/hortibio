@@ -4,761 +4,616 @@ import { initReactI18next } from 'react-i18next';
 const savedLanguage =
   typeof window !== 'undefined' ? window.localStorage.getItem('hortibio-language') : null;
 
+/* ─── French ─────────────────────────────────────────────────────────────── */
+const fr = {
+  nav: {
+    about:   "À propos",
+    catalog: "Nos produits",
+    flow:    "Pourquoi nous",
+    ceo:     "Notre vision",
+    contact: "Contact",
+  },
+  hero: {
+    kicker:       "Votre partenaire de référence en solutions agricoles au Maroc",
+    title:        "Des solutions complètes pour une agriculture performante, durable et résiliente.",
+    lead:         "Horti Bio accompagne les agriculteurs marocains avec des plants certifiés, des solutions de protection des cultures et des structures agricoles de qualité — pour que chaque exploitation produise plus, mieux et durablement.",
+    secondary:    "Contactez-nous",
+    panelTitle:   "Notre mission",
+    panelCopy:    "Accompagner chaque agriculteur dans toutes les dimensions de son exploitation, du plant à la structure.",
+    panelFootnote:"Plants biologiques · Filets de protection · Structures agricoles",
+    floating: {
+      products: "Plants certifiés",
+      plants:   "Protection des cultures",
+      routing:  "Structures agricoles",
+    },
+    stats: {
+      sectors:   "secteurs d'activité",
+      partners:  "agriculteurs partenaires",
+      certified: "plants certifiés garantis",
+    },
+    pills: {
+      hailNet: "Filet Anti-Grêle",
+      plants:  "Plants Certifiés",
+      poles:   "Poteaux Précontraints",
+    },
+  },
+  about: {
+    eyebrow: "À propos de nous",
+    title:   "Qui sommes-nous ?",
+    lead:    "Horti Bio est le partenaire de référence des agriculteurs au Maroc, offrant une gamme complète de solutions du plant biologique aux équipements de protection et de structure.",
+    body:    "De l'importation et commercialisation des plants certifiés aux équipements de protection et de structure, Horti Bio accompagne les agriculteurs dans toutes les dimensions de leur exploitation — pour que chaque exploitation dispose des meilleurs outils pour produire plus, mieux et durablement.",
+    tags: {
+      import:      "Importation",
+      protection:  "Protection des cultures",
+      accessories: "Accessoires agricoles",
+      structures:  "Matériaux & Structures",
+    },
+  },
+  advantages: {
+    programs: {
+      title: "Plants de qualité supérieure",
+      copy:  "Nous importons et commercialisons des plants certifiés, soigneusement sélectionnés auprès des meilleurs producteurs à l'international, adaptés aux conditions climatiques et pédologiques du Maroc.",
+    },
+    quality: {
+      title: "Protection efficace des cultures",
+      copy:  "Nos solutions de filets anti-grêle, filets d'ombrage et brise-vent sont conçues pour préserver vos récoltes contre la grêle, le vent et les aléas climatiques.",
+    },
+    durability: {
+      title: "Structures durables et adaptées",
+      copy:  "Nos poteaux précontraints, tubes galvanisés et wind machines sont pensés pour durer et optimiser votre production dans les conditions les plus exigeantes du terrain.",
+    },
+  },
+  catalog: {
+    eyebrow:   "Nos produits et services",
+    title:     "Nos secteurs d'activité",
+    lead:      "Horti Bio propose une gamme complète de solutions agricoles — des plants certifiés aux équipements de protection et aux structures agricoles.",
+    liveLabel: "Gammes phares",
+    liveTitle: "Des produits sélectionnés pour la performance et la durabilité de votre exploitation.",
+    liveBody:  "Chaque solution est conçue pour répondre aux exigences spécifiques des agriculteurs marocains et aux conditions du terrain.",
+    groups: {
+      plants:      "Plants",
+      protection:  "Protection",
+      accessories: "Accessoires",
+      structures:  "Structures",
+    },
+    items: {
+      certifiedPlants: {
+        title:   "Plants Certifiés Importés",
+        teaser:  "Des plants de haute qualité, soigneusement sélectionnés auprès des meilleurs producteurs mondiaux.",
+        summary: "Variétés adaptées aux conditions climatiques et pédologiques du Maroc pour une production optimale.",
+        detail:  "Chez Horti Bio, nous sommes spécialisés dans l'importation et la commercialisation des plants certifiés, soigneusement sélectionnés auprès des meilleurs producteurs à l'international. Nous mettons notre expertise au service des agriculteurs et exploitants marocains en leur proposant des plants de haute qualité, adaptés aux conditions climatiques et pédologiques du Maroc.",
+        metric:  "Certifiés & contrôlés",
+        market:  "Agriculteurs marocains",
+        format:  "Toutes variétés disponibles",
+      },
+      hailNet: {
+        title:   "Filet Anti-Grêle",
+        teaser:  "Protégez vos récoltes contre la grêle avec nos filets de haute résistance.",
+        summary: "Solutions robustes et durables pour préserver vos cultures face à la grêle et au vent.",
+        detail:  "Nos filets anti-grêle sont sélectionnés pour leur résistance, leur durabilité et leur efficacité dans les conditions marocaines. Protégez efficacement vos cultures contre la grêle et les intempéries, préservant ainsi votre investissement et votre production saison après saison.",
+        metric:  "Haute résistance",
+        market:  "Vergers & cultures maraîchères",
+        format:  "Sur mesure disponible",
+      },
+      shadingNet: {
+        title:   "Brise-vent & Filet Ombrage",
+        teaser:  "Régulation du microclimat et protection contre le vent pour des cultures optimales.",
+        summary: "Filets d'ombrage, brise-vent et filet sur sol 70cm pour une protection complète de vos parcelles.",
+        detail:  "Notre gamme inclut les filets d'ombrage pour réguler la luminosité et la température, les brise-vent pour protéger contre les vents violents, et le filet sur sol 70cm pour le contrôle des mauvaises herbes et la conservation de l'humidité. Des produits robustes pensés pour les conditions du Maroc.",
+        metric:  "Gamme complète",
+        market:  "Serres & plein champ",
+        format:  "Filet ombrage · Brise-vent · Sol 70cm",
+      },
+      poles: {
+        title:   "Poteaux Précontraints",
+        teaser:  "Des structures solides et durables pour l'aménagement de vos parcelles.",
+        summary: "Poteaux précontraints adaptés aux exigences du terrain marocain pour supporter vos filets et structures.",
+        detail:  "Nos poteaux précontraints sont fabriqués pour résister aux conditions les plus exigeantes. Ils constituent la base solide de vos installations de filets anti-grêle et autres structures agricoles, garantissant longévité et résistance pour maximiser votre retour sur investissement.",
+        metric:  "Haute durabilité",
+        market:  "Toutes exploitations",
+        format:  "Adaptés au terrain",
+      },
+      accessories: {
+        title:   "Accessoires Agricoles",
+        teaser:  "Tous les accessoires indispensables au bon fonctionnement de votre exploitation.",
+        summary: "Attaches, clips, systèmes de liage, plaquettes et outillage horticole pour votre quotidien au champ.",
+        detail:  "Retrouvez tous les accessoires indispensables au bon fonctionnement de votre exploitation : plaquettes & filet, systèmes de liage, chapeau, et accessoires & pièces détachées. Des produits pratiques et fiables, conçus pour faciliter votre travail quotidien au champ.",
+        metric:  "Stock permanent",
+        market:  "Tous agriculteurs",
+        format:  "Plaquettes · Liage · Chapeaux · Pièces",
+      },
+      windMachine: {
+        title:   "Tubes Galvanisés & Wind Machine",
+        teaser:  "Équipements de structure pour optimiser et protéger votre production.",
+        summary: "Tubes galvanisés résistants et wind machines pour la protection thermique et aéraulique de vos cultures.",
+        detail:  "Nos tubes galvanisés complètent votre arsenal de structures agricoles avec une résistance optimale à la corrosion. Les wind machines offrent une protection contre le gel et contribuent à la circulation de l'air pour une production optimale toute l'année.",
+        metric:  "Anti-corrosion garanti",
+        market:  "Structures & protection",
+        format:  "Tubes galvanisés · Wind Machine",
+      },
+    },
+  },
+  process: {
+    eyebrow: "Pourquoi Horti Bio",
+    title:   "Pourquoi Horti Bio ?",
+    lead:    "La qualité, l'expertise et l'accompagnement personnalisé sont au cœur de chaque solution que nous proposons.",
+    steps: {
+      selection: {
+        title: "Sélection internationale",
+        copy:  "Nous sélectionnons nos plants et équipements auprès des meilleurs producteurs et fournisseurs à l'international, en privilégiant toujours la qualité.",
+      },
+      quality: {
+        title: "Contrôle qualité rigoureux",
+        copy:  "Chaque produit est soumis à un contrôle qualité strict avant d'être proposé aux agriculteurs marocains, garantissant conformité et performance.",
+      },
+      advice: {
+        title: "Conseil et accompagnement",
+        copy:  "Notre équipe d'experts vous accompagne dans le choix des solutions les mieux adaptées à votre exploitation, à votre terrain et à vos objectifs.",
+      },
+      delivery: {
+        title: "Livraison sur exploitation",
+        copy:  "Nous assurons la livraison directement sur votre exploitation avec un suivi personnalisé pour chaque commande, de la passation à la réception.",
+      },
+    },
+  },
+  sustainability: {
+    eyebrow: "Agriculture durable",
+    title:   "Un engagement pour une agriculture performante et responsable.",
+    lead:    "Horti Bio s'engage à proposer des solutions qui améliorent la productivité tout en respectant l'environnement et les ressources naturelles du Maroc.",
+    organic: {
+      title: "Agriculture biologique",
+      copy:  "Nos plants biologiques certifiés favorisent une agriculture respectueuse de l'environnement, de la biodiversité marocaine et de la santé des consommateurs.",
+    },
+    durability: {
+      title: "Matériaux durables",
+      copy:  "Nous privilégions des matériaux de longue durée pour nos structures et équipements, réduisant les besoins de remplacement fréquents et l'impact environnemental.",
+    },
+    support: {
+      title: "Accompagnement continu",
+      copy:  "Horti Bio reste à vos côtés après la vente, assurant un suivi technique et un conseil expert pour maximiser les performances de vos installations.",
+    },
+  },
+  ceo: {
+    eyebrow:   "Notre vision",
+    title:     "Être le partenaire de confiance de chaque agriculteur marocain.",
+    quote:     "Notre vision est d'être le partenaire de référence des agriculteurs au Maroc, en offrant une gamme complète de solutions — du plant biologique aux équipements de protection et de structure — pour une agriculture performante, durable et résiliente.",
+    note:      "Notre mission est d'accompagner les agriculteurs dans toutes les dimensions de leur exploitation, pour que chaque parcelle dispose des meilleurs outils pour produire plus, mieux et durablement.",
+    signature: "Fondateur, Horti Bio",
+  },
+  contact: {
+    eyebrow:   "Contact",
+    title:     "Parlons de votre exploitation.",
+    lead:      "Que vous ayez besoin de plants certifiés, de filets de protection ou de structures agricoles, l'équipe Horti Bio est à votre disposition pour vous conseiller et vous proposer la solution la mieux adaptée.",
+    mailLabel: "E-mail",
+    email:     "contact@hortibio.ma",
+    action:    "Demander un devis",
+    cards: {
+      imports: "Plants certifiés",
+      exports: "Filets de protection",
+      plants:  "Structures agricoles",
+    },
+  },
+  trust: {
+    eyebrow: "Ils nous font confiance",
+    title:   "Le partenaire choisi par les agriculteurs marocains pour la qualité, la durabilité et l'accompagnement.",
+    lead:    "Des exploitations de toutes tailles au Maroc font confiance à Horti Bio pour s'équiper des meilleures solutions agricoles et maximiser leur production saison après saison.",
+  },
+  footer: {
+    tag: "Solutions agricoles complètes pour une agriculture durable au Maroc.",
+  },
+};
+
+/* ─── English ─────────────────────────────────────────────────────────────── */
+const en = {
+  nav: {
+    about:   'About us',
+    catalog: 'Our products',
+    flow:    'Why us',
+    ceo:     'Our vision',
+    contact: 'Contact',
+  },
+  hero: {
+    kicker:       'Your reference partner for agricultural solutions in Morocco',
+    title:        'Complete solutions for high-performance, sustainable and resilient farming.',
+    lead:         'Horti Bio supports Moroccan farmers with certified plants, crop protection solutions, and quality agricultural structures — to produce more, better, and sustainably.',
+    secondary:    'Contact us',
+    panelTitle:   'Our mission',
+    panelCopy:    'Supporting every farmer in all dimensions of their operation, from plant to structure.',
+    panelFootnote:'Organic plants · Protective nets · Agricultural structures',
+    floating: {
+      products: 'Certified plants',
+      plants:   'Crop protection',
+      routing:  'Agricultural structures',
+    },
+    stats: {
+      sectors:   'sectors of activity',
+      partners:  'farmer partners',
+      certified: 'certified plants',
+    },
+    pills: {
+      hailNet: 'Anti-Hail Net',
+      plants:  'Certified Plants',
+      poles:   'Prestressed Poles',
+    },
+  },
+  about: {
+    eyebrow: 'About us',
+    title:   'Who are we?',
+    lead:    'Horti Bio is the reference partner for farmers in Morocco, offering a complete range of solutions from organic plants to protection equipment and agricultural structures.',
+    body:    "From the importation and commercialization of certified plants to protection equipment and structures, Horti Bio supports farmers in all dimensions of their operations — so every farm has the best tools to produce more, better, and sustainably.",
+    tags: {
+      import:      'Importation',
+      protection:  'Crop protection',
+      accessories: 'Agricultural accessories',
+      structures:  'Materials & Structures',
+    },
+  },
+  advantages: {
+    programs: {
+      title: 'Premium quality plants',
+      copy:  "We import and commercialize certified plants, carefully selected from the world's best international producers, adapted to Morocco's climate and soil conditions.",
+    },
+    quality: {
+      title: 'Effective crop protection',
+      copy:  'Our anti-hail nets, shading nets, and windbreaks are designed to protect your harvests against hail, wind, and all weather hazards.',
+    },
+    durability: {
+      title: 'Durable, adapted structures',
+      copy:  "Our prestressed poles, galvanized tubes, and wind machines are built to last and optimize your production under the most demanding field conditions.",
+    },
+  },
+  catalog: {
+    eyebrow:   'Our products and services',
+    title:     'Our sectors of activity',
+    lead:      'Horti Bio offers a complete range of agricultural solutions — from certified plants to crop protection equipment and agricultural structures.',
+    liveLabel: 'Featured ranges',
+    liveTitle: 'Products selected for the performance and durability of your farm.',
+    liveBody:  "Each solution is designed to meet the specific requirements of Moroccan farmers and local field conditions.",
+    groups: {
+      plants:      'Plants',
+      protection:  'Protection',
+      accessories: 'Accessories',
+      structures:  'Structures',
+    },
+    items: {
+      certifiedPlants: {
+        title:   'Imported Certified Plants',
+        teaser:  "High-quality plants, carefully selected from the world's best producers.",
+        summary: "Varieties adapted to Morocco's climate and soil conditions for optimal production.",
+        detail:  "At Horti Bio, we specialize in the importation and commercialization of certified plants, carefully selected from the best international producers. We put our expertise at the service of Moroccan farmers, offering high-quality plants adapted to Morocco's climatic and soil conditions.",
+        metric:  'Certified & controlled',
+        market:  'Moroccan farmers',
+        format:  'All varieties available',
+      },
+      hailNet: {
+        title:   'Anti-Hail Net',
+        teaser:  'Protect your harvests against hail with our high-resistance nets.',
+        summary: 'Robust and durable solutions to protect your crops against hail and wind.',
+        detail:  "Our anti-hail nets are selected for their resistance, durability, and effectiveness in Moroccan conditions. Effectively protect your crops against hail and bad weather, preserving your investment and production season after season.",
+        metric:  'High resistance',
+        market:  'Orchards & market gardens',
+        format:  'Custom sizes available',
+      },
+      shadingNet: {
+        title:   'Windbreak & Shading Net',
+        teaser:  'Microclimate regulation and wind protection for optimal crops.',
+        summary: 'Shading nets, windbreaks, and 70cm ground cover net for complete field protection.',
+        detail:  'Our range includes shading nets to regulate light and temperature, windbreaks to protect against strong winds, and the 70cm ground net for weed control and moisture retention. Robust products designed for Moroccan field conditions.',
+        metric:  'Complete range',
+        market:  'Greenhouses & open field',
+        format:  'Shading · Windbreak · Ground Net 70cm',
+      },
+      poles: {
+        title:   'Prestressed Poles',
+        teaser:  "Solid and durable structures for the layout of your plots.",
+        summary: "Prestressed poles adapted to Morocco's terrain requirements to support your nets and structures.",
+        detail:  'Our prestressed poles are manufactured to withstand the most demanding conditions. They form the solid foundation of your anti-hail net installations and other agricultural structures, guaranteeing longevity and strength to maximize your return on investment.',
+        metric:  'High durability',
+        market:  'All farms',
+        format:  'Adapted to terrain',
+      },
+      accessories: {
+        title:   'Agricultural Accessories',
+        teaser:  'All the essential accessories for the smooth running of your farm.',
+        summary: 'Ties, clips, tying systems, plates, and horticultural tools for your daily field work.',
+        detail:  'Find all the essential accessories for the smooth running of your farm: plates & nets, tying systems, hats, and spare parts & accessories. Practical and reliable products designed to make your daily field work easier.',
+        metric:  'Permanent stock',
+        market:  'All farmers',
+        format:  'Plates · Tying · Hats · Spare parts',
+      },
+      windMachine: {
+        title:   'Galvanized Tubes & Wind Machine',
+        teaser:  'Structural equipment to optimize and protect your production.',
+        summary: 'Corrosion-resistant galvanized tubes and wind machines for thermal and airflow protection of your crops.',
+        detail:  'Our galvanized tubes complete your agricultural structures with optimal corrosion resistance. Wind machines provide frost protection and contribute to air circulation for optimal year-round production.',
+        metric:  'Anti-corrosion guaranteed',
+        market:  'Structures & protection',
+        format:  'Galvanized tubes · Wind Machine',
+      },
+    },
+  },
+  process: {
+    eyebrow: 'Why Horti Bio',
+    title:   'Why Horti Bio?',
+    lead:    'Quality, expertise, and personalized support are at the heart of every solution we offer.',
+    steps: {
+      selection: {
+        title: 'International selection',
+        copy:  "We select our plants and equipment from the best producers and suppliers worldwide, always prioritizing quality.",
+      },
+      quality: {
+        title: 'Rigorous quality control',
+        copy:  "Every product undergoes strict quality control before being offered to Moroccan farmers, guaranteeing compliance and performance.",
+      },
+      advice: {
+        title: 'Expert advice & support',
+        copy:  "Our team of experts guides you in choosing the solutions best suited to your farm, your terrain, and your objectives.",
+      },
+      delivery: {
+        title: 'Farm delivery',
+        copy:  'We ensure delivery directly to your farm with personalized follow-up for every order, from placement to receipt.',
+      },
+    },
+  },
+  sustainability: {
+    eyebrow: 'Sustainable farming',
+    title:   'A commitment to high-performance and responsible agriculture.',
+    lead:    "Horti Bio is committed to offering solutions that improve productivity while respecting Morocco's environment and natural resources.",
+    organic: {
+      title: 'Organic farming',
+      copy:  "Our certified organic plants promote farming that respects the environment, Morocco's biodiversity, and consumer health.",
+    },
+    durability: {
+      title: 'Durable materials',
+      copy:  'We prioritize long-lasting materials for our structures and equipment, reducing replacement needs and environmental impact.',
+    },
+    support: {
+      title: 'Ongoing support',
+      copy:  'Horti Bio stays with you after the sale, providing technical follow-up and expert advice to maximize the performance of your installations.',
+    },
+  },
+  ceo: {
+    eyebrow:   'Our vision',
+    title:     'To be the trusted partner of every Moroccan farmer.',
+    quote:     'Our vision is to be the reference partner for farmers in Morocco, offering a complete range of solutions — from organic plants to protection equipment and structures — for high-performance, sustainable, and resilient agriculture.',
+    note:      'Our mission is to support farmers in all dimensions of their operation, so every farm has the best tools to produce more, better, and sustainably.',
+    signature: 'Founder, Horti Bio',
+  },
+  contact: {
+    eyebrow:   'Contact',
+    title:     "Let's talk about your farm.",
+    lead:      "Whether you need certified plants, protective nets, or agricultural structures, the Horti Bio team is here to advise you and offer the solution best suited to your needs.",
+    mailLabel: 'Email',
+    email:     'contact@hortibio.ma',
+    action:    'Request a quote',
+    cards: {
+      imports: 'Certified plants',
+      exports: 'Protection nets',
+      plants:  'Agricultural structures',
+    },
+  },
+  trust: {
+    eyebrow: 'They trust us',
+    title:   'The partner chosen by Moroccan farmers for quality, durability, and support.',
+    lead:    'Farms of all sizes across Morocco trust Horti Bio to equip themselves with the best agricultural solutions and maximize their production season after season.',
+  },
+  footer: {
+    tag: 'Complete agricultural solutions for sustainable farming in Morocco.',
+  },
+};
+
+/* ─── Arabic ──────────────────────────────────────────────────────────────── */
+const ar = {
+  nav: {
+    about:   'من نحن',
+    catalog: 'منتجاتنا',
+    flow:    'لماذا نحن',
+    ceo:     'رؤيتنا',
+    contact: 'تواصل',
+  },
+  hero: {
+    kicker:       'شريكك المرجعي في الحلول الزراعية بالمغرب',
+    title:        'حلول متكاملة لزراعة عالية الأداء ومستدامة وصامدة.',
+    lead:         'هورتي بيو ترافق المزارعين المغاربة بالشتلات المعتمدة وحلول حماية المحاصيل والهياكل الزراعية عالية الجودة — لإنتاج أكثر، وأفضل، وبشكل مستدام.',
+    secondary:    'تواصل معنا',
+    panelTitle:   'مهمتنا',
+    panelCopy:    'مرافقة كل مزارع في جميع أبعاد استغلاليته، من الشتلة إلى الهيكل.',
+    panelFootnote:'شتلات بيولوجية · شبكات حماية · هياكل زراعية',
+    floating: {
+      products: 'شتلات معتمدة',
+      plants:   'حماية المحاصيل',
+      routing:  'هياكل زراعية',
+    },
+    stats: {
+      sectors:   'قطاعات نشاط',
+      partners:  'مزارع شريك',
+      certified: 'شتلات معتمدة مضمونة',
+    },
+    pills: {
+      hailNet: 'شبكة مضادة للبرد',
+      plants:  'شتلات معتمدة',
+      poles:   'أعمدة مسبقة الإجهاد',
+    },
+  },
+  about: {
+    eyebrow: 'من نحن',
+    title:   'من نحن؟',
+    lead:    'هورتي بيو هي الشريك المرجعي للمزارعين في المغرب، تقدم مجموعة متكاملة من الحلول من الشتلات البيولوجية إلى معدات الحماية والهياكل الزراعية.',
+    body:    'من استيراد وتسويق الشتلات المعتمدة إلى معدات الحماية والهياكل الزراعية، ترافق هورتي بيو المزارعين في جميع أبعاد استغلالياتهم — لأن كل استغلالية تستحق أفضل الأدوات للإنتاج أكثر وأفضل وبشكل مستدام.',
+    tags: {
+      import:      'استيراد',
+      protection:  'حماية المحاصيل',
+      accessories: 'ملحقات زراعية',
+      structures:  'مواد وهياكل',
+    },
+  },
+  advantages: {
+    programs: {
+      title: 'شتلات عالية الجودة',
+      copy:  'نستورد ونسوّق شتلات معتمدة مختارة بعناية من أفضل المنتجين الدوليين، متكيّفة مع المناخ والتربة المغربية.',
+    },
+    quality: {
+      title: 'حماية فعّالة للمحاصيل',
+      copy:  'شبكاتنا المضادة للبرد وشبكات التظليل ومكاسر الرياح مصممة لحماية محاصيلك من البرد والرياح وجميع الأخطار المناخية.',
+    },
+    durability: {
+      title: 'هياكل متينة ومتكيّفة',
+      copy:  'أعمدتنا مسبقة الإجهاد والأنابيب المجلفنة وآلات الرياح مصممة للمتانة وتحسين إنتاجك في أصعب ظروف الميدان.',
+    },
+  },
+  catalog: {
+    eyebrow:   'منتجاتنا وخدماتنا',
+    title:     'قطاعات نشاطنا',
+    lead:      'تقدم هورتي بيو مجموعة متكاملة من الحلول الزراعية — من الشتلات المعتمدة إلى معدات الحماية والهياكل الزراعية.',
+    liveLabel: 'المجموعات الرئيسية',
+    liveTitle: 'منتجات مختارة لأداء واستدامة استغلاليتك.',
+    liveBody:  'كل حل مصمم لتلبية المتطلبات الخاصة للمزارعين المغاربة والظروف المحلية للميدان.',
+    groups: {
+      plants:      'الشتلات',
+      protection:  'الحماية',
+      accessories: 'الملحقات',
+      structures:  'الهياكل',
+    },
+    items: {
+      certifiedPlants: {
+        title:   'شتلات معتمدة مستوردة',
+        teaser:  'شتلات عالية الجودة مختارة بعناية من أفضل المنتجين في العالم.',
+        summary: 'أصناف متكيّفة مع المناخ والتربة المغربية لإنتاج أمثل.',
+        detail:  'في هورتي بيو، نتخصص في استيراد وتسويق الشتلات المعتمدة، المختارة بعناية من أفضل المنتجين الدوليين. نضع خبرتنا في خدمة المزارعين المغاربة من خلال تقديم شتلات عالية الجودة متكيّفة مع الظروف المناخية والبيدولوجية للمغرب.',
+        metric:  'معتمدة ومراقبة',
+        market:  'المزارعون المغاربة',
+        format:  'جميع الأصناف متوفرة',
+      },
+      hailNet: {
+        title:   'شبكة مضادة للبرد',
+        teaser:  'احمِ محاصيلك من البرد بشبكاتنا عالية المقاومة.',
+        summary: 'حلول متينة ومستدامة لحماية مزروعاتك من البرد والرياح.',
+        detail:  'تُنتقى شبكاتنا المضادة للبرد لمقاومتها وصلابتها وفعاليتها في الظروف المغربية. احمِ محاصيلك بفعالية من البرد والأضرار الجوية، وحافظ على استثمارك وإنتاجك موسماً بعد موسم.',
+        metric:  'مقاومة عالية',
+        market:  'البساتين والمزارع',
+        format:  'مقاسات حسب الطلب',
+      },
+      shadingNet: {
+        title:   'مكسر رياح وشبكة تظليل',
+        teaser:  'تنظيم المناخ المحلي وحماية من الرياح لمحاصيل مثلى.',
+        summary: 'شبكات تظليل ومكاسر رياح وشبكة أرضية 70سم للحماية الكاملة لأراضيك.',
+        detail:  'تشمل مجموعتنا شبكات التظليل لتنظيم الضوء والحرارة، ومكاسر الرياح للحماية من الرياح العاتية، والشبكة الأرضية 70سم للسيطرة على الأعشاب الضارة والحفاظ على الرطوبة.',
+        metric:  'مجموعة متكاملة',
+        market:  'البيوت المحمية والحقول',
+        format:  'تظليل · مكسر رياح · شبكة أرضية',
+      },
+      poles: {
+        title:   'أعمدة مسبقة الإجهاد',
+        teaser:  'هياكل صلبة ومتينة لتهيئة أراضيك الزراعية.',
+        summary: 'أعمدة مسبقة الإجهاد متكيّفة مع متطلبات التضاريس المغربية لدعم شبكاتك وهياكلك.',
+        detail:  'تُصنَّع أعمدتنا مسبقة الإجهاد لمقاومة أصعب الظروف الميدانية. تُشكّل الأساس المتين لتركيبات شبكاتك المضادة للبرد وسائر هياكلك الزراعية، مع ضمان الصمود والقوة لتعظيم عائدك على الاستثمار.',
+        metric:  'متانة عالية',
+        market:  'جميع الاستغلاليات',
+        format:  'مكيّفة مع طبيعة الأرض',
+      },
+      accessories: {
+        title:   'ملحقات زراعية',
+        teaser:  'جميع الملحقات الضرورية لحسن سير استغلاليتك.',
+        summary: 'ربطات وكليبسات وأنظمة ربط ولوحات وأدوات بستانية لعملك اليومي في الحقل.',
+        detail:  'اعثر على جميع الملحقات الضرورية لحسن سير استغلاليتك: لوحات وشبكات، أنظمة ربط، قبعات، وملحقات وقطع غيار. منتجات عملية وموثوقة مصممة لتسهيل عملك اليومي في الحقل.',
+        metric:  'مخزون دائم',
+        market:  'جميع المزارعين',
+        format:  'لوحات · ربط · قبعات · قطع غيار',
+      },
+      windMachine: {
+        title:   'أنابيب مجلفنة وآلة رياح',
+        teaser:  'معدات هيكلية لتحسين إنتاجك وحمايته.',
+        summary: 'أنابيب مجلفنة مقاومة للتآكل وآلات رياح للحماية الحرارية وتحسين تهوية محاصيلك.',
+        detail:  'تُكمّل أنابيبنا المجلفنة هياكلك الزراعية بمقاومة مثلى للصدأ. توفر آلات الرياح حماية من الصقيع وتساهم في تحسين دوران الهواء لإنتاج أمثل على مدار السنة.',
+        metric:  'مقاومة للصدأ مضمونة',
+        market:  'الهياكل والحماية',
+        format:  'أنابيب مجلفنة · آلة رياح',
+      },
+    },
+  },
+  process: {
+    eyebrow: 'لماذا هورتي بيو',
+    title:   'لماذا هورتي بيو؟',
+    lead:    'الجودة والخبرة والمرافقة الشخصية في صلب كل حل نقدمه.',
+    steps: {
+      selection: {
+        title: 'انتقاء دولي',
+        copy:  'نختار شتلاتنا ومعداتنا من أفضل المنتجين والموردين على مستوى العالم، مع إعطاء الأولوية دائماً للجودة.',
+      },
+      quality: {
+        title: 'مراقبة جودة صارمة',
+        copy:  'كل منتج يخضع لمراقبة جودة دقيقة قبل عرضه على المزارعين المغاربة، لضمان المطابقة والأداء.',
+      },
+      advice: {
+        title: 'نصيحة ومرافقة خبراء',
+        copy:  'فريق خبرائنا يرشدك لاختيار الحلول الأنسب لاستغلاليتك وأرضك وأهدافك.',
+      },
+      delivery: {
+        title: 'توصيل إلى الاستغلالية',
+        copy:  'نضمن التوصيل مباشرة إلى استغلاليتك مع متابعة شخصية لكل طلب، من الإرسال إلى الاستلام.',
+      },
+    },
+  },
+  sustainability: {
+    eyebrow: 'الزراعة المستدامة',
+    title:   'التزام بزراعة عالية الأداء ومسؤولة.',
+    lead:    'تلتزم هورتي بيو بتقديم حلول تحسّن الإنتاجية مع احترام البيئة والموارد الطبيعية للمغرب.',
+    organic: {
+      title: 'الزراعة البيولوجية',
+      copy:  'شتلاتنا البيولوجية المعتمدة تعزز زراعة تحترم البيئة والتنوع البيولوجي المغربي وصحة المستهلكين.',
+    },
+    durability: {
+      title: 'مواد متينة',
+      copy:  'نفضّل مواد طويلة الأمد لهياكلنا ومعداتنا، مما يقلل الحاجة إلى الاستبدال المتكرر ويحد من الأثر البيئي.',
+    },
+    support: {
+      title: 'مرافقة مستمرة',
+      copy:  'هورتي بيو تبقى إلى جانبك بعد البيع، وتوفر متابعة تقنية ونصائح خبراء لتحقيق أقصى أداء من تجهيزاتك.',
+    },
+  },
+  ceo: {
+    eyebrow:   'رؤيتنا',
+    title:     'أن نكون الشريك الموثوق لكل مزارع مغربي.',
+    quote:     'رؤيتنا هي أن نكون الشريك المرجعي للمزارعين في المغرب، بتقديم مجموعة متكاملة من الحلول — من الشتلات البيولوجية إلى معدات الحماية والهياكل — من أجل زراعة عالية الأداء ومستدامة وصامدة.',
+    note:      'مهمتنا هي مرافقة المزارعين في جميع أبعاد استغلالياتهم، لأن كل حقل يستحق أفضل الأدوات للإنتاج أكثر وأفضل وباستدامة.',
+    signature: 'مؤسس هورتي بيو',
+  },
+  contact: {
+    eyebrow:   'تواصل',
+    title:     'لنتحدث عن استغلاليتك.',
+    lead:      'سواء كنت بحاجة إلى شتلات معتمدة أو شبكات حماية أو هياكل زراعية، فريق هورتي بيو هنا لإرشادك وتقديم الحل الأنسب لاحتياجاتك.',
+    mailLabel: 'البريد الإلكتروني',
+    email:     'contact@hortibio.ma',
+    action:    'طلب عرض أسعار',
+    cards: {
+      imports: 'الشتلات المعتمدة',
+      exports: 'شبكات الحماية',
+      plants:  'الهياكل الزراعية',
+    },
+  },
+  trust: {
+    eyebrow: 'يثقون بنا',
+    title:   'الشريك الذي يختاره المزارعون المغاربة للجودة والمتانة والمرافقة.',
+    lead:    'استغلاليات من جميع الأحجام في المغرب تثق بهورتي بيو للتجهيز بأفضل الحلول الزراعية وتعظيم إنتاجها موسماً بعد موسم.',
+  },
+  footer: {
+    tag: 'حلول زراعية متكاملة لزراعة مستدامة في المغرب.',
+  },
+};
+
+/* ─── Init ────────────────────────────────────────────────────────────────── */
 const resources = {
-  en: {
-    translation: {
-      nav: {
-        about: 'About us',
-        catalog: 'Products & Plants',
-        flow: 'Services',
-        ceo: 'CEO Word',
-        contact: 'Contact',
-      },
-      views: {
-        label: 'page views',
-        home: 'Landing',
-        products: 'Products',
-      },
-      hero: {
-        kicker: 'Agri-food sourcing and export',
-        title: 'Tailored agricultural trade, prepared to move with confidence across borders.',
-        lead:
-          'Hortibio connects growers, nurseries, importers, and distributors through fresh produce, plant material, and disciplined export execution.',
-        primary: 'Open products tab',
-        secondary: 'Contact us',
-        panelTitle: 'Field to destination',
-        panelCopy:
-          'Fresh produce, plant material, and export coordination shaped around the pace of your market.',
-        panelFootnote: 'Flexible sourcing, controlled finishing, and responsive routing.',
-        floating: {
-          products: 'Fresh products',
-          plants: 'Plant material',
-          routing: 'Export coordination',
-        },
-        stats: {
-          partners: 'grower and nursery partners',
-          markets: 'priority destination markets',
-          readiness: 'days of dispatch readiness',
-        },
-        pills: {
-          coldChain: 'Cold-chain monitored',
-          nursery: 'Nursery stock secured',
-          privateLabel: 'Private label packaging',
-        },
-      },
-      about: {
-        eyebrow: 'About us',
-        title: 'Who are we?',
-        lead:
-          'Hortibio is a sourcing and export partner for fresh produce, plant material, and disciplined agricultural programs.',
-        body:
-          'From plant propagation to export-ready produce, Hortibio coordinates grading, packaging, compliance, and timing so every shipment protects freshness, shelf life, and market confidence.',
-        tags: {
-          wholesale: 'Wholesale programs',
-          retail: 'Retail-ready presentation',
-          landscaping: 'Landscaping plant material',
-          distribution: 'Import distribution support',
-        },
-      },
-      advantages: {
-        programs: {
-          title: 'Flexible programs',
-          copy:
-            'Seasonal schedules can be built around retailer campaigns, wholesale windows, or nursery projects.',
-        },
-        quality: {
-          title: 'Export-grade finishing',
-          copy:
-            'Packing lines, visual quality checks, and load composition are handled with destination standards in mind.',
-        },
-        traceability: {
-          title: 'Clear batch visibility',
-          copy:
-            'Product origin, plant condition, and shipment readiness stay visible from source to handoff.',
-        },
-      },
-      catalog: {
-        eyebrow: 'Products and applications',
-        title: 'Products & Applications',
-        lead:
-          'From fresh produce to nursery material, Hortibio builds commercial lines that balance presentation, compliance, and reliable delivery.',
-        tabsLabel: 'product groups',
-        liveLabel: 'Signature ranges',
-        liveTitle: 'Collections shaped for distributors, retailers, growers, and project buyers.',
-        liveBody:
-          'Each program is organized to protect freshness, plant vitality, and commercial confidence from source to destination.',
-        filters: {
-          products: 'Products',
-          plants: 'Plants',
-        },
-        groups: {
-          products: 'Products',
-          plants: 'Plants',
-        },
-        search: {
-          label: 'Search the active tab',
-          placeholder: 'Search {{group}} by name, market, format, or detail',
-          clear: 'Clear',
-          live: 'Live search',
-          results: '{{count}} of {{total}} {{group}} matches',
-          emptyTitle: 'No matches yet',
-          emptyText: 'Nothing in this tab matches "{{query}}". Try a shorter term or clear the search.',
-          reset: 'Clear search',
-        },
-        tap: 'Tap to reveal',
-        close: 'Close',
-        items: {
-          atlasCitrus: {
-            title: 'Atlas Citrus Program',
-            teaser: 'Bright, export-ready citrus with balanced sizing and cold-chain discipline.',
-            summary: 'Built for retail, wholesale, or juice channels with freshness-first handling.',
-            detail:
-              'Ideal for buyers who need clean visual quality, consistent sizing, and delivery windows that protect merchandising plans. Hortibio aligns harvest rhythm, packhouse finishing, and route timing around market demand.',
-            metric: '48h chilled dispatch',
-            market: 'Retail and wholesale',
-            format: 'Branded or bulk packs',
-          },
-          sunvineTomatoes: {
-            title: 'Sunvine Tomato Clusters',
-            teaser: 'High-gloss clusters packed for visual impact and controlled shelf life.',
-            summary: 'A fast-moving tomato program for display-focused retail and food service.',
-            detail:
-              'Cluster integrity, ripeness stage, and protective packing are tuned to preserve color and firmness during transit. The result is a premium presentation with fewer handling losses at destination.',
-            metric: 'Daily harvest rhythm',
-            market: 'Retail and food service',
-            format: 'Flow-wrap and crate formats',
-          },
-          emeraldHerbs: {
-            title: 'Emerald Herbs Collection',
-            teaser: 'Aromatic herbs selected for freshness, fragrance, and quick market rotation.',
-            summary: 'Mint, basil, parsley, and specialty herbs managed for high-turn channels.',
-            detail:
-              'Hortibio structures cut windows, rapid cooling, and humidity-sensitive packing to keep herbs visually alive. This line works well for importers that sell freshness and aroma, not just weight.',
-            metric: 'Rapid cooling protocol',
-            market: 'Fresh market specialists',
-            format: 'Sleeves, punnets, or mixed crates',
-          },
-          oliveSaplings: {
-            title: 'Olive Sapling Lines',
-            teaser: 'Structured young trees for orchards, projects, and resilient planting programs.',
-            summary: 'Healthy root systems and disciplined nursery handling for transplant success.',
-            detail:
-              'Each program focuses on clean development, travel stability, and arrival readiness. Hortibio positions olive lines for growers, estate projects, and buyers who need plant material that settles quickly after delivery.',
-            metric: 'Nursery stability indexed',
-            market: 'Growers and estate projects',
-            format: 'Pots, sleeves, and project lots',
-          },
-          berrySeedlings: {
-            title: 'Berry Seedling Packs',
-            teaser: 'Compact, vigorous starts for intensive fruit programs and protected agriculture.',
-            summary: 'Young material selected for uniformity, vigor, and controlled transit.',
-            detail:
-              'The focus is on plant health through every touchpoint: tray integrity, moisture balance, and clean separation between lots. Buyers gain a more reliable start for commercial fruiting programs.',
-            metric: 'Uniformity-led batches',
-            market: 'Protected agriculture',
-            format: 'Tray and nursery packs',
-          },
-          signaturePalms: {
-            title: 'Signature Landscape Palms',
-            teaser: 'Architectural palms delivered with presentation quality and transport discipline.',
-            summary: 'A landscaping range designed for hospitality, public spaces, and premium residences.',
-            detail:
-              'The program is built around canopy protection, stable root containment, and a polished arrival look. It supports landscaping buyers who need strong visual presence without compromising transport resilience.',
-            metric: 'Project-ready specimens',
-            market: 'Landscape and hospitality',
-            format: 'Container and project supply',
-          },
-        },
-      },
-      process: {
-        eyebrow: 'Why Hortibio',
-        title: 'Why Hortibio?',
-        lead:
-          'Flexible service, export discipline, and tailored execution are built into every program.',
-        steps: {
-          network: {
-            title: 'Origin network',
-            copy:
-              'Growers, nurseries, and field teams align around volumes, varieties, and harvest windows.',
-          },
-          finish: {
-            title: 'Grading and packing',
-            copy:
-              'Export finishing, protective packaging, and brand-ready presentation are built into the workflow.',
-          },
-          corridor: {
-            title: 'Cold chain and customs',
-            copy:
-              'Documentation, phytosanitary control, and temperature discipline move in the same lane.',
-          },
-          arrival: {
-            title: 'Market-ready arrival',
-            copy:
-              'Distributors, retail teams, and landscape buyers receive material ready to move.',
-          },
-        },
-      },
-      sustainability: {
-        eyebrow: 'Responsible growth',
-        title: 'Operational discipline that protects the crop and the ecosystem.',
-        lead:
-          'Hortibio pairs commercial ambition with efficient resource use, export compliance, and presentation quality.',
-        water: {
-          title: 'Water-smart cultivation',
-          copy:
-            'Growing programs favor irrigation awareness and handling routines that respect plant stress and post-harvest life.',
-        },
-        packaging: {
-          title: 'Protective, efficient packing',
-          copy:
-            'Packaging is selected to secure the product, reduce unnecessary waste, and support branded presentation.',
-        },
-        compliance: {
-          title: 'Compliance-minded trade',
-          copy:
-            'Documentation, phytosanitary preparation, and shipment discipline stay central to every export flow.',
-        },
-      },
-      ceo: {
-        eyebrow: 'A word from the CEO',
-        title: 'The business only succeeds when the product still feels alive at destination.',
-        quote:
-          'Our promise is simple: we do not move anonymous boxes. We move flavor, vitality, and trust with the precision international agriculture deserves.',
-        note:
-          'That means choosing the right growers, respecting the plant, planning the route, and staying accountable until delivery.',
-        signature: 'CEO, Hortibio',
-      },
-      contact: {
-        eyebrow: 'Contact',
-        title: 'Build your next agricultural program with Hortibio.',
-        lead:
-          'Fresh produce, nursery stock, import planning, export execution, and branded packing can be coordinated through one response desk.',
-        mailLabel: 'Mail',
-        email: 'hello@hortibio.com',
-        action: 'Request seasonal availability',
-        cards: {
-          imports: 'Import sourcing',
-          exports: 'Export scheduling',
-          plants: 'Plant programs',
-        },
-      },
-      trust: {
-        eyebrow: 'They trust us',
-        title: 'A sourcing partner chosen for consistency, flexibility, and destination-ready presentation.',
-        lead:
-          'Importers, retailers, growers, and project buyers work with Hortibio when the brief demands responsive coordination and dependable finish quality.',
-      },
-      footer: {
-        tag: 'Green supply chains for products and plants.',
-      },
-    },
-  },
-  fr: {
-    translation: {
-      nav: {
-        about: 'A propos',
-        catalog: 'Produits et plantes',
-        flow: 'Services',
-        ceo: 'Mot du CEO',
-        contact: 'Contact',
-      },
-      views: {
-        label: 'vues de page',
-        home: 'Accueil',
-        products: 'Produits',
-      },
-      hero: {
-        kicker: 'Sourcing et export agroalimentaire',
-        title: 'Un commerce agricole sur mesure, prepare pour circuler avec confiance au dela des frontieres.',
-        lead:
-          'Hortibio relie producteurs, pepinieres, importateurs et distributeurs autour de produits frais, de materiel vegetal et d une execution export rigoureuse.',
-        primary: 'Ouvrir l onglet produits',
-        secondary: 'Contactez-nous',
-        panelTitle: 'Du terrain a la destination',
-        panelCopy:
-          'Produits frais, materiel vegetal et coordination export calibres selon le rythme de votre marche.',
-        panelFootnote: 'Sourcing flexible, finition controlee et routage reactif.',
-        floating: {
-          products: 'Produits frais',
-          plants: 'Materiel vegetal',
-          routing: 'Coordination export',
-        },
-        stats: {
-          partners: 'partenaires producteurs et pepinieres',
-          markets: 'marches prioritaires',
-          readiness: 'jours de disponibilite logistique',
-        },
-        pills: {
-          coldChain: 'Chaine du froid suivie',
-          nursery: 'Stock pepiniere securise',
-          privateLabel: 'Conditionnement marque privee',
-        },
-      },
-      about: {
-        eyebrow: 'A propos',
-        title: 'Qui sommes-nous ?',
-        lead:
-          'Hortibio est un partenaire sourcing et export pour les produits frais, le materiel vegetal et les programmes agricoles bien executes.',
-        body:
-          'De la propagation vegetale aux produits prets a l export, Hortibio coordonne tri, emballage, conformite et timing pour proteger la fraicheur, la tenue et la confiance du marche.',
-        tags: {
-          wholesale: 'Programmes grossistes',
-          retail: 'Presentation prete pour le retail',
-          landscaping: 'Materiel vegetal paysager',
-          distribution: 'Support distribution import',
-        },
-      },
-      advantages: {
-        programs: {
-          title: 'Programmes flexibles',
-          copy:
-            'Les calendriers saisonniers peuvent suivre des campagnes retail, des fenetres de gros ou des projets pepinieres.',
-        },
-        quality: {
-          title: 'Finition niveau export',
-          copy:
-            'Les lignes de conditionnement, les controles visuels et la composition des charges sont penses pour la destination.',
-        },
-        traceability: {
-          title: 'Visibilite lot par lot',
-          copy:
-            'L origine, l etat des plantes et la disponibilite expedition restent visibles de la source a la remise.',
-        },
-      },
-      catalog: {
-        eyebrow: 'Produits et applications',
-        title: 'Produits et applications',
-        lead:
-          'Des produits frais au materiel vegetal, Hortibio construit des lignes commerciales qui equilibrent presentation, conformite et livraison fiable.',
-        tabsLabel: 'groupes produits',
-        liveLabel: 'Gammes signature',
-        liveTitle: 'Des collections pensees pour distributeurs, enseignes, producteurs et acheteurs projet.',
-        liveBody:
-          'Chaque programme est organise pour proteger la fraicheur, la vitalite vegetale et la confiance commerciale de la source a la destination.',
-        filters: {
-          products: 'Produits',
-          plants: 'Plantes',
-        },
-        groups: {
-          products: 'Produits',
-          plants: 'Plantes',
-        },
-        search: {
-          label: 'Rechercher dans l onglet actif',
-          placeholder: 'Rechercher dans {{group}} par nom, marche, format ou detail',
-          clear: 'Effacer',
-          live: 'Recherche live',
-          results: '{{count}} sur {{total}} resultats {{group}}',
-          emptyTitle: 'Aucun resultat',
-          emptyText: 'Aucun element de cet onglet ne correspond a "{{query}}". Essayez un terme plus court ou effacez la recherche.',
-          reset: 'Effacer la recherche',
-        },
-        tap: 'Appuyer pour ouvrir',
-        close: 'Fermer',
-        items: {
-          atlasCitrus: {
-            title: 'Programme agrumes Atlas',
-            teaser: 'Des agrumes lumineux, prets pour l export, avec calibrage regulier et chaine du froid maitrisee.',
-            summary: 'Concu pour le retail, le gros ou le jus avec une logique fraicheur en premier.',
-            detail:
-              'Ideal pour les acheteurs qui exigent une qualite visuelle nette, des calibres coherents et des fenetres de livraison qui protegent les plans merchandising. Hortibio aligne rythme de recolte, finition station et timing route sur la demande.',
-            metric: 'Expedition refrigeree en 48h',
-            market: 'Retail et grossistes',
-            format: 'Marquee ou vrac',
-          },
-          sunvineTomatoes: {
-            title: 'Tomates grappe Sunvine',
-            teaser: 'Des grappes brillantes emballees pour un impact visuel fort et une bonne tenue.',
-            summary: 'Un programme tomate rapide pour le retail visuel et la restauration.',
-            detail:
-              'L integrite des grappes, le stade de maturite et la protection emballage sont ajustes pour garder couleur et fermete pendant le transport. Le resultat est une presentation premium avec moins de pertes de manipulation.',
-            metric: 'Rythme de recolte quotidien',
-            market: 'Retail et restauration',
-            format: 'Flow pack et caisses',
-          },
-          emeraldHerbs: {
-            title: 'Collection d herbes Emerald',
-            teaser: 'Des herbes aromatiques choisies pour la fraicheur, le parfum et la rotation rapide.',
-            summary: 'Menthe, basilic, persil et herbes de specialite pour les circuits a forte rotation.',
-            detail:
-              'Hortibio structure coupe, refroidissement rapide et emballage sensible a l humidite pour garder les herbes vivantes visuellement. Cette gamme sert les importateurs qui vendent la fraicheur et l arome, pas seulement le poids.',
-            metric: 'Refroidissement rapide',
-            market: 'Specialistes du frais',
-            format: 'Manchons, barquettes ou mix caisses',
-          },
-          oliveSaplings: {
-            title: 'Lignes de jeunes oliviers',
-            teaser: 'De jeunes arbres structures pour vergers, projets et plantations resistantes.',
-            summary: 'Racines saines et manutention pepiniere disciplinee pour une bonne reprise.',
-            detail:
-              'Chaque programme se concentre sur un developpement propre, une stabilite au transport et une readiness a l arrivee. Hortibio positionne ces lignes pour producteurs, domaines et projets a besoin de materiel vegetal fiable.',
-            metric: 'Stabilite pepiniere mesuree',
-            market: 'Producteurs et domaines',
-            format: 'Pots, sleeves et lots projets',
-          },
-          berrySeedlings: {
-            title: 'Packs de jeunes plants berries',
-            teaser: 'Des departs compacts et vigoureux pour programmes fruitiers intensifs et serres.',
-            summary: 'Jeunes plants choisis pour uniformite, vigueur et transport controle.',
-            detail:
-              'L attention porte sur la sante vegetale a chaque etape: integrite plateau, equilibre hydrique et separation nette entre lots. Les acheteurs obtiennent un meilleur point de depart pour les programmes de production commerciale.',
-            metric: 'Lots guides par l uniformite',
-            market: 'Agriculture protegee',
-            format: 'Plateaux et packs pepiniere',
-          },
-          signaturePalms: {
-            title: 'Palmiers Signature paysage',
-            teaser: 'Des palmiers architecturaux livres avec qualite visuelle et discipline transport.',
-            summary: 'Une gamme paysage pour l hotellerie, les espaces publics et les residences premium.',
-            detail:
-              'Le programme est construit autour de la protection du feuillage, de la stabilite racinaire et d une belle presentation a l arrivee. Il repond aux acheteurs paysage qui veulent une forte presence visuelle sans sacrifier la resilience logistique.',
-            metric: 'Specimens prets projet',
-            market: 'Paysage et hotellerie',
-            format: 'Conteneurs et supply projet',
-          },
-        },
-      },
-      process: {
-        eyebrow: 'Pourquoi Hortibio',
-        title: 'Pourquoi Hortibio ?',
-        lead:
-          'Service flexible, discipline export et execution sur mesure sont integres a chaque programme.',
-        steps: {
-          network: {
-            title: 'Reseau origine',
-            copy:
-              'Producteurs, pepinieres et equipes terrain s alignent sur les volumes, varietes et fenetres de recolte.',
-          },
-          finish: {
-            title: 'Tri et conditionnement',
-            copy:
-              'La finition export, les protections et la presentation marquee sont integrees au workflow.',
-          },
-          corridor: {
-            title: 'Froid et douane',
-            copy:
-              'Documentation, phytosanitaire et discipline temperature avancent dans la meme voie.',
-          },
-          arrival: {
-            title: 'Arrivee prete marche',
-            copy:
-              'Les distributeurs, equipes retail et acheteurs paysage recoivent un materiel pret a bouger.',
-          },
-        },
-      },
-      sustainability: {
-        eyebrow: 'Croissance responsable',
-        title: 'Une discipline operationnelle qui protege la culture et l ecosysteme.',
-        lead:
-          'Hortibio associe ambition commerciale, efficience des ressources, conformite export et qualite de presentation.',
-        water: {
-          title: 'Culture attentive a l eau',
-          copy:
-            'Les programmes privilegient une logique irrigation consciente et des manipulations respectueuses du stress plante.',
-        },
-        packaging: {
-          title: 'Emballage protecteur et efficace',
-          copy:
-            'L emballage est choisi pour securiser le produit, limiter le gaspillage inutile et soutenir la marque.',
-        },
-        compliance: {
-          title: 'Commerce centre sur la conformite',
-          copy:
-            'Documentation, preparation phytosanitaire et discipline expedition restent au coeur de chaque flux.',
-        },
-      },
-      ceo: {
-        eyebrow: 'Mot du CEO',
-        title: 'Le business ne reussit que si le produit semble encore vivant a destination.',
-        quote:
-          'Notre promesse est simple: nous ne deplacons pas des boites anonymes. Nous deplacons saveur, vitalite et confiance avec la precision que l agriculture internationale exige.',
-        note:
-          'Cela veut dire choisir les bons producteurs, respecter la plante, planifier la route et rester responsable jusqu a la livraison.',
-        signature: 'CEO, Hortibio',
-      },
-      contact: {
-        eyebrow: 'Contact',
-        title: 'Construisez votre prochain programme agricole avec Hortibio.',
-        lead:
-          'Produits frais, stock pepiniere, planification import, execution export et conditionnement marque peuvent passer par un seul desk.',
-        mailLabel: 'Mail',
-        email: 'hello@hortibio.com',
-        action: 'Demander les disponibilites saisonnieres',
-        cards: {
-          imports: 'Sourcing import',
-          exports: 'Planning export',
-          plants: 'Programmes plantes',
-        },
-      },
-      trust: {
-        eyebrow: 'Ils nous font confiance',
-        title: 'Un partenaire sourcing choisi pour sa regularite, sa flexibilite et une presentation prete a la destination.',
-        lead:
-          'Importateurs, enseignes, producteurs et acheteurs projet travaillent avec Hortibio quand le cahier des charges exige coordination reactive et qualite de finition fiable.',
-      },
-      footer: {
-        tag: 'Des chaines vertes pour les produits et les plantes.',
-      },
-    },
-  },
-  ar: {
-    translation: {
-      nav: {
-        about: 'من نحن',
-        catalog: 'المنتجات والنباتات',
-        flow: 'الخدمات',
-        ceo: 'كلمة المدير',
-        contact: 'تواصل',
-      },
-      views: {
-        label: 'طرق العرض',
-        home: 'الرئيسية',
-        products: 'المنتجات',
-      },
-      hero: {
-        kicker: 'توريد وتصدير زراعي غذائي',
-        title: 'تجارة زراعية مصممة حسب الطلب ومهيأة للتحرك بثقة عبر الحدود.',
-        lead:
-          'هورتيبيو تربط بين المزارعين والمشاتل والمستوردين والموزعين عبر منتجات طازجة ومادة نباتية وتنفيذ تصدير منضبط.',
-        primary: 'افتح تبويب المنتجات',
-        secondary: 'اتصل بنا',
-        panelTitle: 'من الحقل الى الوجهة',
-        panelCopy:
-          'منتجات طازجة ومادة نباتية وتنسيق تصدير مصمم حسب ايقاع سوقك.',
-        panelFootnote: 'توريد مرن وتشطيب مضبوط وتوجيه سريع.',
-        floating: {
-          products: 'منتجات طازجة',
-          plants: 'مادة نباتية',
-          routing: 'تنسيق التصدير',
-        },
-        stats: {
-          partners: 'شركاء من المزارع والمشاتل',
-          markets: 'اسواق اولوية',
-          readiness: 'ايام جاهزية للشحن',
-        },
-        pills: {
-          coldChain: 'سلسلة تبريد مراقبة',
-          nursery: 'مخزون مشاتل مؤمن',
-          privateLabel: 'تعبئة بعلامة خاصة',
-        },
-      },
-      about: {
-        eyebrow: 'من نحن',
-        title: 'من نحن؟',
-        lead:
-          'هورتيبيو شريك في التوريد والتصدير للمنتجات الطازجة والمادة النباتية والبرامج الزراعية المنضبطة.',
-        body:
-          'من اكثار النباتات الى المنتجات الجاهزة للتصدير، تنسق هورتيبيو الفرز، التعبئة، المطابقة، والتوقيت حتى يحافظ كل شحن على الطزاجة والعمر التسويقي وثقة السوق.',
-        tags: {
-          wholesale: 'برامج الجملة',
-          retail: 'عرض جاهز للتجزئة',
-          landscaping: 'مواد نباتية للتنسيق',
-          distribution: 'دعم توزيع الاستيراد',
-        },
-      },
-      advantages: {
-        programs: {
-          title: 'برامج مرنة',
-          copy:
-            'يمكن بناء الجداول الموسمية حول حملات التجزئة، نوافذ الجملة، او مشاريع المشاتل.',
-        },
-        quality: {
-          title: 'تشطيب بمستوى التصدير',
-          copy:
-            'خطوط التعبئة، الفحص البصري، وتكوين الحمولة تتم كلها وفق متطلبات السوق النهائي.',
-        },
-        traceability: {
-          title: 'رؤية واضحة لكل دفعة',
-          copy:
-            'يبقى مصدر المنتج، حالة النبات، وجاهزية الشحن واضحة من البداية حتى التسليم.',
-        },
-      },
-      catalog: {
-        eyebrow: 'المنتجات والتطبيقات',
-        title: 'المنتجات والتطبيقات',
-        lead:
-          'من المنتجات الطازجة الى المادة النباتية، تبني هورتيبيو خطوطا تجارية توازن بين العرض والامتثال والتسليم الموثوق.',
-        tabsLabel: 'مجموعات المنتجات',
-        liveLabel: 'مجموعات مميزة',
-        liveTitle: 'تشكيلات مصممة للموزعين وتجار التجزئة والمزارعين ومشتري المشاريع.',
-        liveBody:
-          'كل برنامج منظم لحماية الطزاجة وحيوية النبات والثقة التجارية من المصدر حتى الوصول.',
-        filters: {
-          products: 'المنتجات',
-          plants: 'النباتات',
-        },
-        groups: {
-          products: 'المنتجات',
-          plants: 'النباتات',
-        },
-        search: {
-          label: 'ابحث داخل التبويب النشط',
-          placeholder: 'ابحث داخل {{group}} بالاسم او السوق او الشكل او التفاصيل',
-          clear: 'مسح',
-          live: 'بحث مباشر',
-          results: '{{count}} من {{total}} نتائج {{group}}',
-          emptyTitle: 'لا توجد نتائج',
-          emptyText: 'لا يوجد عنصر في هذا التبويب يطابق "{{query}}". جرب كلمة اقصر او امسح البحث.',
-          reset: 'مسح البحث',
-        },
-        tap: 'اضغط للكشف',
-        close: 'اغلاق',
-        items: {
-          atlasCitrus: {
-            title: 'برنامج حمضيات اطلس',
-            teaser: 'حمضيات مشرقة جاهزة للتصدير مع احجام متوازنة وانضباط في سلسلة التبريد.',
-            summary: 'مناسبة للتجزئة والجملة والعصائر مع معالجة تضع الطزاجة اولا.',
-            detail:
-              'مثالية للمشترين الذين يحتاجون جودة بصرية نظيفة، احجاما متسقة، ومواعيد تسليم تحمي خطط العرض. تنسق هورتيبيو بين ايقاع الحصاد، تشطيب المحطة، وتوقيت المسار حسب طلب السوق.',
-            metric: 'شحن مبرد خلال 48 ساعة',
-            market: 'التجزئة والجملة',
-            format: 'تعبئة خاصة او بالجملة',
-          },
-          sunvineTomatoes: {
-            title: 'عناقيد طماطم صنفاين',
-            teaser: 'عناقيد لامعة معبأة لتأثير بصري قوي وعمر عرض مضبوط.',
-            summary: 'برنامج طماطم سريع للحسابات التي تعتمد على العرض القوي والخدمة الغذائية.',
-            detail:
-              'سلامة العنقود، مرحلة النضج، والحماية اثناء التعبئة يتم ضبطها للمحافظة على اللون والصلابة خلال النقل. النتيجة عرض ممتاز مع خسائر تداول اقل عند الوصول.',
-            metric: 'ايقاع حصاد يومي',
-            market: 'التجزئة والخدمة الغذائية',
-            format: 'تغليف فردي وصناديق',
-          },
-          emeraldHerbs: {
-            title: 'مجموعة اعشاب ايميرالد',
-            teaser: 'اعشاب عطرية مختارة للطزاجة والرائحة والدوران السريع في السوق.',
-            summary: 'نعناع، ريحان، بقدونس واعشاب خاصة للقنوات السريعة.',
-            detail:
-              'تنظم هورتيبيو اوقات القطع، التبريد السريع، والتعبئة الحساسة للرطوبة للحفاظ على مظهر الاعشاب حيا. هذا الخط مناسب للمستوردين الذين يبيعون الطزاجة والرائحة وليس الوزن فقط.',
-            metric: 'بروتوكول تبريد سريع',
-            market: 'متخصصو السوق الطازج',
-            format: 'اكياس، علب، او صناديق متنوعة',
-          },
-          oliveSaplings: {
-            title: 'خطوط شتلات الزيتون',
-            teaser: 'اشجار صغيرة منظمة للبساتين والمشاريع وبرامج الزراعة المتحملة.',
-            summary: 'جذور صحية ومناولة مشتل منضبطة لنجاح افضل بعد النقل.',
-            detail:
-              'يركز كل برنامج على نمو نظيف، ثبات اثناء السفر، وجاهزية عند الوصول. تضع هورتيبيو هذه الخطوط لخدمة المزارعين والمشاريع العقارية والمشترين الذين يحتاجون مادة نباتية تستقر بسرعة بعد التسليم.',
-            metric: 'ثبات مشتل محسوب',
-            market: 'المزارعون والمشاريع',
-            format: 'اصص واغلفة ودفعات مشاريع',
-          },
-          berrySeedlings: {
-            title: 'حزم شتلات التوت',
-            teaser: 'بدايات قوية ومضغوطة لبرامج الفاكهة المكثفة والزراعة المحمية.',
-            summary: 'مادة نباتية صغيرة مختارة للتجانس والقوة والنقل المنضبط.',
-            detail:
-              'التركيز هنا على صحة النبات في كل نقطة: سلامة الصواني، توازن الرطوبة، والفصل الواضح بين الدفعات. يحصل المشتري على بداية اكثر موثوقية لبرامج الاثمار التجارية.',
-            metric: 'دفعات مبنية على التجانس',
-            market: 'الزراعة المحمية',
-            format: 'صواني وحزم مشاتل',
-          },
-          signaturePalms: {
-            title: 'نخيل سيغنتشر للتنسيق',
-            teaser: 'نخيل معماري يصل بجودة عرض عالية وانضباط في النقل.',
-            summary: 'مجموعة تنسيق مخصصة للضيافة والمساحات العامة والمساكن الراقية.',
-            detail:
-              'يبنى البرنامج حول حماية التاج، ثبات الجذور، ومظهر مصقول عند الوصول. وهو يخدم مشترين يحتاجون حضورا بصريا قويا من دون التضحية بقدرة النبات على تحمل النقل.',
-            metric: 'نماذج جاهزة للمشاريع',
-            market: 'التنسيق والضيافة',
-            format: 'حاويات وتوريد مشاريع',
-          },
-        },
-      },
-      process: {
-        eyebrow: 'لماذا هورتيبيو',
-        title: 'لماذا هورتيبيو؟',
-        lead:
-          'الخدمة المرنة والانضباط التصديري والتنفيذ المصمم حسب الحاجة موجودة داخل كل برنامج.',
-        steps: {
-          network: {
-            title: 'شبكة المصدر',
-            copy:
-              'يتم توحيد المزارعين والمشاتل والفرق الميدانية حول الكميات والاصناف ونوافذ الحصاد.',
-          },
-          finish: {
-            title: 'الفرز والتعبئة',
-            copy:
-              'تشطيب التصدير، الحماية، والعرض الجاهز للعلامة يتم دمجه داخل سير العمل.',
-          },
-          corridor: {
-            title: 'التبريد والجمارك',
-            copy:
-              'الوثائق، المتطلبات النباتية، والانضباط الحراري تتحرك في مسار واحد.',
-          },
-          arrival: {
-            title: 'وصول جاهز للسوق',
-            copy:
-              'يتسلم الموزعون وفرق التجزئة ومشترو التنسيق نباتات ومنتجات جاهزة للحركة.',
-          },
-        },
-      },
-      sustainability: {
-        eyebrow: 'نمو مسؤول',
-        title: 'انضباط تشغيلي يحمي المحصول والنظام البيئي.',
-        lead:
-          'تجمع هورتيبيو بين الطموح التجاري وكفاءة الموارد والامتثال للتصدير وجودة العرض.',
-        water: {
-          title: 'زراعة واعية بالمياه',
-          copy:
-            'تعطي برامج النمو اولوية للري الواعي ومناولة تحترم اجهاد النبات وما بعد الحصاد.',
-        },
-        packaging: {
-          title: 'تعبئة واقية وفعالة',
-          copy:
-            'يتم اختيار التعبئة لحماية المنتج وتقليل الهدر غير الضروري ودعم صورة العلامة.',
-        },
-        compliance: {
-          title: 'تجارة قائمة على المطابقة',
-          copy:
-            'تبقى الوثائق والتحضير النباتي وانضباط الشحن في قلب كل تدفق تصدير.',
-        },
-      },
-      ceo: {
-        eyebrow: 'كلمة من المدير التنفيذي',
-        title: 'ينجح العمل فقط عندما يبدو المنتج حيا حتى عند الوصول.',
-        quote:
-          'وعدنا بسيط: نحن لا ننقل صناديق مجهولة. نحن ننقل النكهة والحيوية والثقة بالدقة التي تستحقها الزراعة الدولية.',
-        note:
-          'هذا يعني اختيار المزارعين المناسبين، احترام النبات، تخطيط المسار، والبقاء مسؤولين حتى التسليم.',
-        signature: 'المدير التنفيذي، هورتيبيو',
-      },
-      contact: {
-        eyebrow: 'تواصل',
-        title: 'ابن برنامجك الزراعي القادم مع هورتيبيو.',
-        lead:
-          'المنتجات الطازجة، مخزون المشاتل، تخطيط الاستيراد، تنفيذ التصدير، والتعبئة المخصصة يمكن تنسيقها عبر مكتب واحد.',
-        mailLabel: 'البريد',
-        email: 'hello@hortibio.com',
-        action: 'اطلب التوفر الموسمي',
-        cards: {
-          imports: 'توريد الاستيراد',
-          exports: 'جدولة التصدير',
-          plants: 'برامج النباتات',
-        },
-      },
-      trust: {
-        eyebrow: 'يثقون بنا',
-        title: 'شريك توريد يتم اختياره بسبب الثبات والمرونة وجودة العرض عند الوصول.',
-        lead:
-          'يعمل مع هورتيبيو المستوردون وتجار التجزئة والمزارعون ومشترو المشاريع عندما يتطلب الملف تنسيقا سريعا وجودة تنفيذ موثوقة.',
-      },
-      footer: {
-        tag: 'سلاسل خضراء للمنتجات والنباتات.',
-      },
-    },
-  },
+  fr: { translation: fr },
+  en: { translation: en },
+  ar: { translation: ar },
 };
 
 if (!i18n.isInitialized) {
   i18n.use(initReactI18next).init({
     resources,
-    lng: savedLanguage || 'en',
-    fallbackLng: 'en',
-    interpolation: {
-      escapeValue: false,
-    },
+    lng: savedLanguage || 'fr',
+    fallbackLng: 'fr',
+    interpolation: { escapeValue: false },
   });
 }
 
