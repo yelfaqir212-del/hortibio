@@ -410,6 +410,15 @@ function App() {
             <a className="footer-mail" href={`mailto:${t('contact.email')}`}>
               {t('contact.email')}
             </a>
+            <span className="footer-divider" aria-hidden="true">·</span>
+            <a
+              className="footer-credit"
+              href="https://www.brandea.ma"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Created by Brandea Brand Builders
+            </a>
           </div>
         </footer>
       </div>

@@ -961,6 +961,20 @@ section[id] {
   color: rgba(255, 244, 225, 0.78);
 }
 
+.footer-divider {
+  color: rgba(255, 244, 225, 0.3);
+}
+
+.footer-credit {
+  color: rgba(255, 244, 225, 0.5);
+  font-size: 0.88rem;
+  transition: color 180ms ease;
+}
+
+.footer-credit:hover {
+  color: rgba(255, 244, 225, 0.9);
+}
+
 .section-title.left,
 .story-copy,
 .story-emphasis,
