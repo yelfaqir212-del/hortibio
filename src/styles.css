@@ -54,6 +54,33 @@
   --catalog-cap-bg: rgba(255, 253, 248, 0.72);
   --nav-link-bg-mobile: rgba(134, 112, 33, 0.06);
   --nav-link-active-bg-mobile: rgba(45, 122, 64, 0.1);
+  --ceo-card-bg:
+    radial-gradient(circle at top right, rgba(209, 187, 121, 0.22), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(45, 122, 64, 0.08), transparent 34%),
+    linear-gradient(135deg, #efe5d1 0%, #fffdf8 100%);
+  --ceo-card-border: rgba(103, 83, 19, 0.14);
+  --ceo-title: var(--ink);
+  --ceo-quote: var(--text);
+  --ceo-copy: var(--muted);
+  --ceo-name: var(--olive-deep);
+  --ceo-role: rgba(103, 83, 19, 0.62);
+  --ceo-mark-bg: radial-gradient(circle at 30% 30%, #f9f2db, #d6be76 58%, #816724 100%);
+  --contact-card-bg:
+    radial-gradient(circle at top right, rgba(45, 122, 64, 0.1), transparent 38%),
+    radial-gradient(circle at bottom left, rgba(29, 92, 142, 0.08), transparent 36%),
+    radial-gradient(circle at center, rgba(209, 187, 121, 0.06), transparent 60%),
+    linear-gradient(135deg, #f0ebde 0%, #fffdf8 100%);
+  --contact-card-border: rgba(45, 122, 64, 0.16);
+  --contact-foreground: var(--text);
+  --contact-title: var(--ink);
+  --contact-copy: var(--muted);
+  --footer-zone-bg: linear-gradient(180deg, transparent 0%, transparent 1rem, #efe8d9 1rem, #efe8d9 100%);
+  --footer-credit-color: rgba(103, 83, 19, 0.62);
+  --footer-credit-hover: rgba(103, 83, 19, 0.9);
+  --contact-email-bg: rgba(29, 92, 142, 0.08);
+  --contact-email-border: rgba(40, 120, 186, 0.18);
+  --contact-email-color: #1d5c8e;
+  --contact-email-hover: rgba(29, 92, 142, 0.14);
 }
 
 :root[data-theme='dark'] {
@@ -102,6 +129,32 @@
   --catalog-cap-bg: rgba(19, 15, 11, 0.76);
   --nav-link-bg-mobile: rgba(255, 255, 255, 0.04);
   --nav-link-active-bg-mobile: rgba(101, 202, 121, 0.16);
+  --ceo-card-bg:
+    radial-gradient(circle at top right, rgba(209, 187, 121, 0.2), transparent 28%),
+    linear-gradient(135deg, #1c170f 0%, #0e0b08 100%);
+  --ceo-card-border: rgba(209, 187, 121, 0.18);
+  --ceo-title: #fff8ec;
+  --ceo-quote: rgba(255, 244, 225, 0.92);
+  --ceo-copy: rgba(255, 244, 225, 0.72);
+  --ceo-name: #fff1d0;
+  --ceo-role: rgba(255, 241, 208, 0.58);
+  --ceo-mark-bg: radial-gradient(circle at 30% 30%, #e7d6a2, #987f2b 54%, #44340f 100%);
+  --contact-card-bg:
+    radial-gradient(circle at top right, rgba(45, 122, 64, 0.14), transparent 38%),
+    radial-gradient(circle at bottom left, rgba(29, 92, 142, 0.12), transparent 36%),
+    radial-gradient(circle at center, rgba(209, 187, 121, 0.06), transparent 60%),
+    linear-gradient(135deg, #0c1710 0%, #080d14 100%);
+  --contact-card-border: rgba(45, 122, 64, 0.22);
+  --contact-foreground: #fff8ec;
+  --contact-title: #fff8ec;
+  --contact-copy: rgba(255, 244, 225, 0.72);
+  --footer-zone-bg: linear-gradient(180deg, transparent 0%, transparent 1rem, #0f0c07 1rem, #0f0c07 100%);
+  --footer-credit-color: rgba(255, 244, 225, 0.5);
+  --footer-credit-hover: rgba(255, 244, 225, 0.9);
+  --contact-email-bg: rgba(29, 92, 142, 0.18);
+  --contact-email-border: rgba(40, 120, 186, 0.3);
+  --contact-email-color: #e8f4ff;
+  --contact-email-hover: rgba(29, 92, 142, 0.3);
 }
 
 * {
@@ -1060,27 +1113,44 @@ section[id] {
   padding: clamp(1.6rem, 4vw, 3rem);
   border-radius: 40px;
   overflow: hidden;
-  background:
-    radial-gradient(circle at top right, rgba(209, 187, 121, 0.2), transparent 28%),
-    linear-gradient(135deg, #1c170f 0%, #0e0b08 100%);
-  border-color: rgba(209, 187, 121, 0.18);
+  background: var(--ceo-card-bg);
+  border-color: var(--ceo-card-border);
+}
+
+.ceo-particles,
+.ceo-mark {
+  position: relative;
+  z-index: 1;
+}
+
+.ceo-particles,
+/* Particle canvas fills the card */
+.contact-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 .ceo-mark {
   display: grid;
   place-items: center;
+  width: min(100%, 12rem);
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #e7d6a2, #987f2b 54%, #44340f 100%);
+  background: var(--ceo-mark-bg);
   color: #fff6dc;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 6rem;
-  font-weight: 700;
+  box-shadow: 0 18px 36px rgba(45, 122, 64, 0.16);
+}
+
+.ceo-mark-logo {
+  width: clamp(5.6rem, 9vw, 7.4rem);
+  height: auto;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.12));
 }
 
 .ceo-copy h2 {
   margin-top: 1rem;
-  color: #fff8ec;
+  color: var(--ceo-title);
   font-size: clamp(2.7rem, 6vw, 4.5rem);
 }
 
@@ -1088,26 +1158,31 @@ section[id] {
   margin: 1.4rem 0 1rem;
   padding-left: 1rem;
   border-left: 2px solid rgba(61, 168, 84, 0.7);
-  color: rgba(255, 244, 225, 0.92);
+  color: var(--ceo-quote);
   font-size: 1.08rem;
   line-height: 1.85;
 }
 
+.ceo-copy {
+  position: relative;
+  z-index: 1;
+}
+
 .ceo-copy p {
-  color: rgba(255, 244, 225, 0.72);
+  color: var(--ceo-copy);
 }
 
 .ceo-copy strong {
   display: block;
   margin-top: 1rem;
-  color: #fff1d0;
+  color: var(--ceo-name);
   font-size: 1.08rem;
 }
 
 .ceo-role {
   display: block;
   margin-top: 0.25rem;
-  color: rgba(255, 241, 208, 0.58);
+  color: var(--ceo-role);
   font-size: 0.88rem;
   letter-spacing: 0.06em;
 }
@@ -1115,28 +1190,17 @@ section[id] {
 .footer-zone {
   margin-top: 4rem;
   padding-top: 1rem;
-  background: linear-gradient(180deg, transparent 0%, transparent 1rem, #0f0c07 1rem, #0f0c07 100%);
+  background: var(--footer-zone-bg);
 }
 
 .contact-section,
 .site-footer {
-  color: #fff8ec;
+  color: var(--contact-foreground);
 }
 
 .contact-card {
-  background:
-    radial-gradient(circle at top right, rgba(45, 122, 64, 0.14), transparent 38%),
-    radial-gradient(circle at bottom left, rgba(29, 92, 142, 0.12), transparent 36%),
-    radial-gradient(circle at center, rgba(209, 187, 121, 0.06), transparent 60%),
-    linear-gradient(135deg, #0c1710 0%, #080d14 100%);
-  border-color: rgba(45, 122, 64, 0.22);
-}
-
-/* Particle canvas fills the card */
-.contact-particles {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+  background: var(--contact-card-bg);
+  border-color: var(--contact-card-border);
 }
 
 /* All content above particles */
@@ -1161,11 +1225,11 @@ section[id] {
 }
 
 .contact-inner .section-title h2 {
-  color: #fff8ec;
+  color: var(--contact-title);
 }
 
 .contact-inner .section-title p {
-  color: rgba(255, 244, 225, 0.72);
+  color: var(--contact-copy);
 }
 
 .section-title.center {
@@ -1206,13 +1270,13 @@ section[id] {
 }
 
 .contact-email-btn {
-  background: rgba(29, 92, 142, 0.18);
-  border: 1px solid rgba(40, 120, 186, 0.3);
-  color: #e8f4ff;
+  background: var(--contact-email-bg);
+  border: 1px solid var(--contact-email-border);
+  color: var(--contact-email-color);
 }
 
 .contact-email-btn:hover {
-  background: rgba(29, 92, 142, 0.3);
+  background: var(--contact-email-hover);
 }
 
 .contact-whatsapp-btn {
@@ -1260,13 +1324,48 @@ section[id] {
 }
 
 .footer-credit {
-  color: rgba(255, 244, 225, 0.5);
+  color: var(--footer-credit-color);
   font-size: 0.88rem;
   transition: color 180ms ease;
 }
 
 .footer-credit:hover {
-  color: rgba(255, 244, 225, 0.9);
+  color: var(--footer-credit-hover);
+}
+
+:root[data-theme='dark'] .siam-chat-panel {
+  background: rgba(20, 16, 12, 0.94);
+  border-color: rgba(209, 187, 121, 0.14);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
+}
+
+:root[data-theme='dark'] .siam-chat-detail,
+:root[data-theme='dark'] .siam-chat-highlight,
+:root[data-theme='dark'] .siam-chat-close {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+:root[data-theme='dark'] .siam-chat-note {
+  color: rgba(229, 220, 205, 0.72);
+}
+
+:root[data-theme='dark'] .siam-chat-link.secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(209, 187, 121, 0.14);
+  color: var(--text);
+}
+
+:root[data-theme='dark'] .siam-chat-close:hover,
+:root[data-theme='dark'] .siam-chat-link.secondary:hover {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+:root[data-theme='dark'] .siam-chat-trigger {
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.4);
+}
+
+:root[data-theme='dark'] .siam-chat-trigger::after {
+  background: rgba(137, 223, 154, 0.24);
 }
 
 :root[data-theme='dark'] .section-eyebrow:not(.hero-eyebrow):not(.on-dark) {
@@ -1293,6 +1392,211 @@ section[id] {
 .ceo-copy,
 .contact-copy {
   text-align: start;
+}
+
+.siam-chat-root {
+  position: fixed;
+  inset-inline-end: 1rem;
+  inset-block-end: 1rem;
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.85rem;
+  pointer-events: none;
+}
+
+.siam-chat-root > * {
+  pointer-events: auto;
+}
+
+.siam-chat-trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.9rem;
+  height: 3.9rem;
+  border: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d7f7de, #b9efc5);
+  color: #1f5a2b;
+  cursor: pointer;
+  box-shadow: 0 20px 44px rgba(45, 122, 64, 0.18);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.siam-chat-trigger::after {
+  content: '';
+  position: absolute;
+  inset: -0.35rem;
+  border-radius: 50%;
+  background: rgba(185, 239, 197, 0.45);
+  z-index: -1;
+}
+
+.siam-chat-trigger:hover,
+.siam-chat-trigger:focus-visible {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.siam-chat-trigger-logo {
+  width: 2.05rem;
+  height: 2.05rem;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.14));
+}
+
+.siam-chat-close svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.siam-chat-panel {
+  width: min(23rem, calc(100vw - 1rem));
+  max-height: min(76vh, 40rem);
+  overflow-y: auto;
+  padding: 1rem;
+  border: 1px solid var(--header-border);
+  border-radius: 26px;
+  background: rgba(255, 253, 248, 0.96);
+  box-shadow: 0 28px 64px rgba(44, 33, 10, 0.18);
+  backdrop-filter: blur(18px);
+}
+
+.siam-chat-header,
+.siam-chat-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.siam-chat-header {
+  justify-content: space-between;
+}
+
+.siam-chat-heading {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.siam-chat-kicker {
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.42rem 0.68rem;
+  border-radius: 999px;
+  background: rgba(45, 122, 64, 0.1);
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.siam-chat-heading strong {
+  color: var(--ink);
+  font-size: 1.18rem;
+  line-height: 1.3;
+}
+
+.siam-chat-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(103, 83, 19, 0.08);
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.siam-chat-close:hover,
+.siam-chat-close:focus-visible {
+  background: rgba(103, 83, 19, 0.14);
+  color: var(--olive-deep);
+}
+
+.siam-chat-lead,
+.siam-chat-note {
+  margin: 0.9rem 0 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.siam-chat-highlight {
+  margin-top: 0.95rem;
+  padding: 0.92rem 1rem;
+  border-radius: 20px;
+  background: rgba(45, 122, 64, 0.08);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.siam-chat-details {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.siam-chat-detail {
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.85rem 0.95rem;
+  border-radius: 18px;
+  background: rgba(103, 83, 19, 0.05);
+}
+
+.siam-chat-detail span {
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.siam-chat-detail strong {
+  color: var(--text);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.siam-chat-note {
+  font-size: 0.9rem;
+}
+
+.siam-chat-actions {
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.siam-chat-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.9rem;
+  padding: 0.78rem 1.05rem;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.siam-chat-link:hover,
+.siam-chat-link:focus-visible {
+  transform: translateY(-1px);
+}
+
+.siam-chat-link.primary {
+  background: linear-gradient(135deg, #235f2f, #3da854);
+  color: #f0fff4;
+}
+
+.siam-chat-link.secondary {
+  border: 1px solid rgba(103, 83, 19, 0.12);
+  background: rgba(103, 83, 19, 0.05);
+  color: var(--text);
 }
 
 [dir='rtl'] .ceo-copy blockquote {
@@ -1474,6 +1778,15 @@ section[id] {
     max-height: calc(100dvh - 5.75rem);
   }
 
+  .siam-chat-root {
+    inset-inline-end: 0.75rem;
+    inset-block-end: 0.75rem;
+  }
+
+  .siam-chat-panel {
+    width: min(22rem, calc(100vw - 1rem));
+  }
+
   /* hero */
   .hero-stage {
     min-height: auto;
@@ -1561,7 +1874,7 @@ section[id] {
 
   .ceo-mark {
     width: 8rem;
-    font-size: 4.5rem;
+    margin-inline: auto;
   }
 
   /* contact */
@@ -1585,6 +1898,20 @@ section[id] {
 
   .theme-toggle {
     margin-inline: auto;
+  }
+
+  .siam-chat-panel {
+    width: calc(100vw - 1rem);
+    max-height: min(72vh, 34rem);
+  }
+
+  .siam-chat-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .siam-chat-link {
+    width: 100%;
   }
 }
 
@@ -1664,6 +1991,27 @@ section[id] {
   .catalog-shell,
   .contact-card,
   .ceo-card {
+    border-radius: 22px;
+  }
+
+  .siam-chat-root {
+    inset-inline-end: 0.5rem;
+    inset-block-end: 0.5rem;
+  }
+
+  .siam-chat-trigger {
+    width: 3.45rem;
+    height: 3.45rem;
+  }
+
+  .siam-chat-trigger-logo {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .siam-chat-panel {
+    width: calc(100vw - 0.75rem);
+    padding: 0.9rem;
     border-radius: 22px;
   }
 }

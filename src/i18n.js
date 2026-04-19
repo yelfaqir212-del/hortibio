@@ -204,6 +204,35 @@ const fr = {
     title:   "Le partenaire choisi par les agriculteurs marocains pour la qualité, la durabilité et l'accompagnement.",
     lead:    "Des exploitations de toutes tailles au Maroc font confiance à Horti Bio pour s'équiper des meilleures solutions agricoles et maximiser leur production saison après saison.",
   },
+  siamChat: {
+    open:      "Ouvrir l’assistant SIAM",
+    close:     "Fermer l’assistant SIAM",
+    kicker:    "SIAM 2026",
+    title:     "Visitez le stand HORTI BIO",
+    welcome:   "Bienvenue au SIAM. L’équipe HORTI BIO sera ravie de vous accueillir pour vous présenter ses plantes certifiées, ses solutions de protection des cultures et ses structures agricoles.",
+    invite:    "Passez nous voir à Meknès et échangeons sur vos projets, vos besoins terrain et les solutions les mieux adaptées à votre exploitation.",
+    note:      "Informations issues du site officiel actuel du SIAM.",
+    siteCta:   "Site officiel du SIAM",
+    contactCta:"Contacter HORTI BIO",
+    details: {
+      dates: {
+        label: "Dates",
+        value: "20 au 28 avril 2026",
+      },
+      professionals: {
+        label: "Journées professionnelles",
+        value: "20 avril après inauguration, 21 et 22 avril · 09h00 à 18h00",
+      },
+      public: {
+        label: "Professionnels & grand public",
+        value: "23 au 28 avril · 09h00 à 18h00",
+      },
+      location: {
+        label: "Lieu",
+        value: "Ecole d’Horticulture – Jnan Ben Halima, 50 000 Meknès, Maroc",
+      },
+    },
+  },
   footer: {
     tag: "Solutions agricoles complètes pour une agriculture durable au Maroc.",
   },
@@ -409,6 +438,35 @@ const en = {
     title:   'The partner chosen by Moroccan farmers for quality, durability, and support.',
     lead:    'Farms of all sizes across Morocco trust Horti Bio to equip themselves with the best agricultural solutions and maximize their production season after season.',
   },
+  siamChat: {
+    open:      'Open the SIAM assistant',
+    close:     'Close the SIAM assistant',
+    kicker:    'SIAM 2026',
+    title:     'Visit the HORTI BIO stand',
+    welcome:   'Welcome to SIAM. The HORTI BIO team would be pleased to welcome you and present its certified plants, crop protection solutions, and agricultural structures.',
+    invite:    'Meet us in Meknes to discuss your projects, your field needs, and the solutions best suited to your farm.',
+    note:      'Information based on the current official SIAM website.',
+    siteCta:   'Official SIAM website',
+    contactCta:'Contact HORTI BIO',
+    details: {
+      dates: {
+        label: 'Dates',
+        value: '20 to 28 April 2026',
+      },
+      professionals: {
+        label: 'Professional days',
+        value: '20 April after inauguration, 21 and 22 April · 09:00 to 18:00',
+      },
+      public: {
+        label: 'Professionals & public',
+        value: '23 to 28 April · 09:00 to 18:00',
+      },
+      location: {
+        label: 'Location',
+        value: 'School of Horticulture – Jnan Ben Halima, 50 000 Meknes, Morocco',
+      },
+    },
+  },
   footer: {
     tag: 'Complete agricultural solutions for sustainable farming in Morocco.',
   },
@@ -613,6 +671,35 @@ const ar = {
     eyebrow: 'يثقون بنا',
     title:   'الشريك الذي يختاره المزارعون المغاربة للجودة والمتانة والمرافقة.',
     lead:    'استغلاليات من جميع الأحجام في المغرب تثق بهورتي بيو للتجهيز بأفضل الحلول الزراعية وتعظيم إنتاجها موسماً بعد موسم.',
+  },
+  siamChat: {
+    open:      'فتح مساعد SIAM',
+    close:     'إغلاق مساعد SIAM',
+    kicker:    'SIAM 2026',
+    title:     'زوروا جناح HORTI BIO',
+    welcome:   'مرحباً بكم في SIAM. سيكون فريق HORTI BIO سعيداً باستقبالكم للتعريف بشتلاته المعتمدة، وحلول حماية المحاصيل، والهياكل الزراعية.',
+    invite:    'نرحب بكم في مكناس للحديث عن مشاريعكم واحتياجاتكم الميدانية والحلول الأنسب لاستغلاليتكم.',
+    note:      'المعلومات مأخوذة من الموقع الرسمي الحالي لمعرض SIAM.',
+    siteCta:   'الموقع الرسمي لـ SIAM',
+    contactCta:'تواصل مع HORTI BIO',
+    details: {
+      dates: {
+        label: 'التواريخ',
+        value: '20 إلى 28 أبريل 2026',
+      },
+      professionals: {
+        label: 'أيام المهنيين',
+        value: '20 أبريل بعد الافتتاح، و21 و22 أبريل · من 09:00 إلى 18:00',
+      },
+      public: {
+        label: 'المهنيون والعموم',
+        value: 'من 23 إلى 28 أبريل · من 09:00 إلى 18:00',
+      },
+      location: {
+        label: 'المكان',
+        value: 'مدرسة البستنة – جنان بن حليمة، 50 000 مكناس، المغرب',
+      },
+    },
   },
   footer: {
     tag: 'حلول زراعية متكاملة لزراعة مستدامة في المغرب.',

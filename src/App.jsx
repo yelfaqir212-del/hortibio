@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { SectionTitle } from './components/SectionTitle';
 import { ContactParticles } from './components/ContactParticles';
+import { SiamChat } from './components/SiamChat';
 import {
   aboutTagKeys,
   advantageIds,
@@ -172,8 +173,9 @@ function App() {
   const closeMobileNav = () => setIsMobileNavOpen(false);
 
   return (
-    <div className="app-shell">
-      <header className={`site-header ${isMobileNavOpen ? 'menu-open' : ''}`}>
+    <>
+      <div className="app-shell">
+        <header className={`site-header ${isMobileNavOpen ? 'menu-open' : ''}`}>
         <a className="brand-lockup" href="#home" onClick={closeMobileNav}>
           <img src="/logohortibio.svg" className="brand-logo" alt="Hortibio" />
           <span className="brand-wordmark">hortibio</span>
@@ -272,7 +274,7 @@ function App() {
         </div>
       </header>
 
-      <main className="site-main">
+        <main className="site-main">
         <section className="hero-section" id="home">
           <motion.div
             className="hero-stage"
@@ -471,10 +473,14 @@ function App() {
 
         <section className="ceo-section" id="ceo">
           <motion.div className="ceo-card" {...riseUp()}>
-            <div className="ceo-mark" aria-hidden="true">H</div>
+            <ContactParticles theme={theme} variant="ceo" className="ceo-particles" id="ceo-particles" />
+
+            <div className="ceo-mark">
+              <img src="/logohortibio.svg" alt="Hortibio logo" className="ceo-mark-logo" />
+            </div>
 
             <div className="ceo-copy">
-              <span className="section-eyebrow on-dark">{t('ceo.eyebrow')}</span>
+              <span className={`section-eyebrow ${theme === 'dark' ? 'on-dark' : ''}`}>{t('ceo.eyebrow')}</span>
               <h2>{t('ceo.title')}</h2>
               <blockquote>{t('ceo.quote')}</blockquote>
               <p>{t('ceo.note')}</p>
@@ -483,12 +489,12 @@ function App() {
             </div>
           </motion.div>
         </section>
-      </main>
+        </main>
 
-      <div className="footer-zone">
-        <section className="contact-section" id="contact">
-          <motion.div className="contact-card" {...riseUp()}>
-            <ContactParticles />
+        <div className="footer-zone">
+          <section className="contact-section" id="contact">
+            <motion.div className="contact-card" {...riseUp()}>
+              <ContactParticles theme={theme} variant="contact" className="contact-particles" id="contact-particles" />
 
             <div className="contact-inner">
               <div className="contact-logo-center">
@@ -529,22 +535,24 @@ function App() {
                 </a>
               </div>
             </div>
-          </motion.div>
-        </section>
+            </motion.div>
+          </section>
 
-        <footer className="site-footer">
-          <p>Copyright © 2026 — Owned by Horti Bio</p>
-          <a
-            className="footer-credit"
-            href="https://www.brandea.ma"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Created by Brandea Brand Builders
-          </a>
-        </footer>
+          <footer className="site-footer">
+            <p>Copyright © 2026 — Owned by Horti Bio</p>
+            <a
+              className="footer-credit"
+              href="https://www.brandea.ma"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Created by Brandea Brand Builders
+            </a>
+          </footer>
+        </div>
       </div>
-    </div>
+      <SiamChat />
+    </>
   );
 }
 
