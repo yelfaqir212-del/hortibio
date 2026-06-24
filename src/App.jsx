@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { SectionTitle } from './components/SectionTitle';
 import { ContactParticles } from './components/ContactParticles';
 import { SiamChat } from './components/SiamChat';
+import { FontPicker } from './components/FontPicker';
 import {
   aboutTagKeys,
   advantageIds,
@@ -266,6 +267,8 @@ function App() {
                 </button>
               </div>
             </div>
+            {/* Font picker placed in the header so it's visible in the navbar */}
+            <FontPicker />
 
             <a className="header-cta" href="#contact" onClick={closeMobileNav}>
               {t('hero.secondary')}
