@@ -5,6 +5,7 @@ import { SectionTitle } from './components/SectionTitle';
 import { ContactParticles } from './components/ContactParticles';
 import { SiamChat } from './components/SiamChat';
 import { FontPicker } from './components/FontPicker';
+import { HortibioCatalog } from './components/HortibioCatalog';
 import {
   aboutTagKeys,
   advantageIds,
@@ -16,7 +17,10 @@ import {
   sustainabilityIds,
 } from './data/siteContent';
 
-const navItems = ['about', 'catalog', 'flow', 'ceo', 'contact'];
+const navItems = ['about', 'catalog', 'hortibioCatalog', 'flow', 'ceo', 'contact'];
+const navTargets = {
+  hortibioCatalog: 'hortibio-catalog',
+};
 
 const heroVideos = ['/VD01.mp4', '/Vd02.mp4', '/VD03.mp4'];
 const themeStorageKey = 'hortibio-theme';
@@ -112,7 +116,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const ids = ['home', 'about', 'catalog', 'flow', 'ceo', 'contact'];
+    const ids = ['home', 'about', 'catalog', 'hortibio-catalog', 'flow', 'ceo', 'contact'];
     const observers = [];
 
     ids.forEach((id) => {
@@ -200,8 +204,8 @@ function App() {
             {navItems.map((item) => (
               <a
                 key={item}
-                href={`#${item}`}
-                className={activeSection === item ? 'nav-active' : ''}
+                href={`#${navTargets[item] ?? item}`}
+                className={(activeSection === item || (item === 'hortibioCatalog' && activeSection === 'hortibio-catalog')) ? 'nav-active' : ''}
                 onClick={closeMobileNav}
               >
                 {t(`nav.${item}`)}
@@ -411,6 +415,8 @@ function App() {
             </div>
           </div>
         </section>
+
+        <HortibioCatalog />
 
         <section className="flow-section" id="flow">
           <div className="section-frame section-frame-soft">

@@ -1137,6 +1137,239 @@ section[id] {
   margin-bottom: 0.85rem;
 }
 
+.hortibio-catalog-section {
+  padding-top: 1.5rem;
+}
+
+.hortibio-catalog-shell {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: center;
+  padding: clamp(1.4rem, 3vw, 3rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(circle at 14% 12%, rgba(209, 187, 121, 0.2), transparent 26%),
+    radial-gradient(circle at 92% 86%, rgba(45, 122, 64, 0.12), transparent 28%),
+    linear-gradient(135deg, rgba(43, 29, 15, 0.08), rgba(255, 253, 248, 0.92));
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+:root[data-theme='dark'] .hortibio-catalog-shell {
+  background:
+    radial-gradient(circle at 14% 12%, rgba(209, 187, 121, 0.16), transparent 26%),
+    radial-gradient(circle at 92% 86%, rgba(101, 202, 121, 0.1), transparent 28%),
+    linear-gradient(135deg, rgba(42, 29, 18, 0.9), rgba(14, 11, 8, 0.94));
+}
+
+.hortibio-catalog-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.hortibio-catalog-copy h2 {
+  margin: 1rem 0 0;
+  color: var(--ink);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 600;
+  line-height: 0.94;
+}
+
+.hortibio-catalog-copy p {
+  max-width: 36rem;
+  margin: 1.2rem 0 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.hortibio-catalog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.6rem;
+}
+
+.catalog-download {
+  border-color: var(--panel-border);
+  background: var(--panel-bg);
+  color: var(--olive-deep);
+}
+
+.grimoire {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(0.9rem, 2vw, 1.25rem);
+  border: 1px solid rgba(83, 51, 20, 0.38);
+  border-radius: 28px;
+  background:
+    linear-gradient(90deg, rgba(48, 30, 16, 0.96), rgba(102, 67, 31, 0.92) 8%, rgba(58, 37, 20, 0.96)),
+    linear-gradient(135deg, #5f3b21, #24140c);
+  box-shadow: 0 36px 84px rgba(28, 17, 6, 0.28);
+  perspective: 1600px;
+}
+
+.grimoire::before,
+.grimoire::after {
+  content: '';
+  position: absolute;
+  inset: 0.7rem;
+  border-radius: 22px;
+  pointer-events: none;
+}
+
+.grimoire::before {
+  border: 1px solid rgba(236, 210, 135, 0.25);
+}
+
+.grimoire::after {
+  z-index: -1;
+  transform: translate(0.75rem, 0.9rem);
+  background: rgba(38, 22, 11, 0.28);
+  filter: blur(16px);
+}
+
+.grimoire-spine {
+  position: absolute;
+  inset-block: 1.1rem;
+  left: 1.05rem;
+  width: 0.55rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(236, 210, 135, 0.8), rgba(120, 78, 31, 0.2));
+  box-shadow: 0 0 0 1px rgba(255, 241, 208, 0.12);
+}
+
+.grimoire-topbar,
+.grimoire-controls {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: rgba(255, 244, 225, 0.84);
+}
+
+.grimoire-topbar {
+  padding: 0.25rem 0.5rem 0.9rem 1.35rem;
+}
+
+.grimoire-topbar span {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.grimoire-topbar strong {
+  font-size: 0.92rem;
+}
+
+.grimoire-stage {
+  position: relative;
+  height: clamp(30rem, 58vw, 43rem);
+  overflow: hidden;
+  border-radius: 18px;
+  background:
+    linear-gradient(90deg, rgba(112, 74, 32, 0.28), transparent 12%, transparent 88%, rgba(112, 74, 32, 0.22)),
+    #f8f1df;
+  box-shadow: inset 0 0 0 1px rgba(67, 43, 17, 0.18), inset 22px 0 34px rgba(83, 52, 21, 0.12);
+  transform-style: preserve-3d;
+}
+
+.catalog-pdf-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #f8f1df;
+}
+
+.turning-page {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  width: 50%;
+  transform-style: preserve-3d;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.96), rgba(239, 225, 190, 0.98)),
+    linear-gradient(135deg, #fffaf0, #e8d6a9);
+  box-shadow: 0 16px 40px rgba(35, 22, 8, 0.28);
+  backface-visibility: hidden;
+}
+
+.turning-page.next {
+  right: 0;
+  left: auto;
+  transform-origin: left center;
+}
+
+.turning-page.prev {
+  left: 0;
+  transform-origin: right center;
+}
+
+.turning-page span {
+  position: absolute;
+  inset: 1.4rem;
+  border: 1px solid rgba(103, 83, 19, 0.12);
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(45, 122, 64, 0.05), transparent 42%);
+}
+
+.grimoire-controls {
+  padding: 1rem 0.25rem 0;
+}
+
+.grimoire-arrow {
+  display: inline-grid;
+  place-items: center;
+  width: 3.1rem;
+  height: 3.1rem;
+  border: 1px solid rgba(255, 241, 208, 0.22);
+  border-radius: 50%;
+  background: rgba(255, 244, 225, 0.1);
+  color: #fff1d0;
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease, opacity 180ms ease;
+}
+
+.grimoire-arrow span {
+  display: block;
+  margin-top: -0.1rem;
+  font-size: 2.1rem;
+  line-height: 1;
+}
+
+.grimoire-arrow:hover,
+.grimoire-arrow:focus-visible {
+  transform: translateY(-2px);
+  background: rgba(255, 244, 225, 0.18);
+}
+
+.grimoire-arrow:disabled {
+  cursor: not-allowed;
+  opacity: 0.38;
+  transform: none;
+}
+
+.grimoire-progress {
+  flex: 1;
+  height: 0.48rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 244, 225, 0.14);
+}
+
+.grimoire-progress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #d1bb79, #65ca79);
+  transition: width 360ms ease;
+}
+
 .flow-heading {
   max-width: 54rem;
 }
@@ -1749,7 +1982,8 @@ section[id] {
 @media (max-width: 1100px) {
   .hero-grid,
   .story-copy-grid,
-  .catalog-header {
+  .catalog-header,
+  .hortibio-catalog-shell {
     grid-template-columns: 1fr;
   }
 
@@ -1968,10 +2202,23 @@ section[id] {
   /* sections */
   .section-frame,
   .catalog-shell,
+  .hortibio-catalog-shell,
   .contact-card,
   .ceo-card {
     padding: 1.3rem;
     border-radius: 26px;
+  }
+
+  .hortibio-catalog-copy h2 {
+    font-size: clamp(2.4rem, 10vw, 3.7rem);
+  }
+
+  .grimoire {
+    border-radius: 22px;
+  }
+
+  .grimoire-stage {
+    height: min(34rem, 105vw);
   }
 
   .section-title h2 {
