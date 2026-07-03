@@ -31,7 +31,7 @@ export function HortibioCatalog() {
   };
 
   return (
-    <section className="hortibio-catalog-section" id="hortibio-catalog">
+    <div className="hortibio-catalog-section">
       <div className="hortibio-catalog-shell">
         <div className="hortibio-catalog-copy">
           <span className="section-eyebrow">{t('hortibioCatalog.eyebrow')}</span>
@@ -113,6 +113,6 @@ export function HortibioCatalog() {
           </div>
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 }

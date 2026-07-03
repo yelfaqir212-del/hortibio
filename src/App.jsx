@@ -4,12 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { SectionTitle } from './components/SectionTitle';
 import { ContactParticles } from './components/ContactParticles';
 import { SiamChat } from './components/SiamChat';
-import { FontPicker } from './components/FontPicker';
 import { HortibioCatalog } from './components/HortibioCatalog';
 import {
   aboutTagKeys,
   advantageIds,
-  catalogItems,
   heroPillKeys,
   heroStats,
   languages,
@@ -17,10 +15,7 @@ import {
   sustainabilityIds,
 } from './data/siteContent';
 
-const navItems = ['about', 'catalog', 'hortibioCatalog', 'flow', 'ceo', 'contact'];
-const navTargets = {
-  hortibioCatalog: 'hortibio-catalog',
-};
+const navItems = ['about', 'catalog', 'flow', 'ceo', 'contact'];
 
 const heroVideos = ['/VD01.mp4', '/Vd02.mp4', '/VD03.mp4'];
 const themeStorageKey = 'hortibio-theme';
@@ -49,15 +44,6 @@ const imgs = {
   aerialFarm:     '/DJI_0130.jpg',
   aerialWorkers:  '/DJI_0162.jpg',
   netStructure:   '/DSC01537.jpg',
-};
-
-const catalogVisuals = {
-  certifiedPlants: imgs.appleRedGreen,
-  hailNet:         imgs.netStructure,
-  shadingNet:      imgs.greenhouse,
-  poles:           imgs.aerialFarm,
-  accessories:     imgs.aerialWorkers,
-  windMachine:     imgs.orchardRows,
 };
 
 const riseUp = (delay = 0) => ({
@@ -116,7 +102,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const ids = ['home', 'about', 'catalog', 'hortibio-catalog', 'flow', 'ceo', 'contact'];
+    const ids = ['home', 'about', 'catalog', 'flow', 'ceo', 'contact'];
     const observers = [];
 
     ids.forEach((id) => {
@@ -204,8 +190,8 @@ function App() {
             {navItems.map((item) => (
               <a
                 key={item}
-                href={`#${navTargets[item] ?? item}`}
-                className={(activeSection === item || (item === 'hortibioCatalog' && activeSection === 'hortibio-catalog')) ? 'nav-active' : ''}
+                href={`#${item}`}
+                className={activeSection === item ? 'nav-active' : ''}
                 onClick={closeMobileNav}
               >
                 {t(`nav.${item}`)}
@@ -271,9 +257,6 @@ function App() {
                 </button>
               </div>
             </div>
-            {/* Font picker placed in the header so it's visible in the navbar */}
-            <FontPicker />
-
             <a className="header-cta" href="#contact" onClick={closeMobileNav}>
               {t('hero.secondary')}
             </a>
@@ -383,40 +366,8 @@ function App() {
         </section>
 
         <section className="catalog-section" id="catalog">
-          <div className="catalog-shell">
-            <div className="catalog-header">
-              <SectionTitle eyebrow={t('catalog.eyebrow')} title={t('catalog.title')} text={t('catalog.lead')} />
-
-              <motion.div className="catalog-brief" {...riseUp(0.1)}>
-                <span className="catalog-brief-label">{t('catalog.liveLabel')}</span>
-                <strong>{t('catalog.liveTitle')}</strong>
-                <p>{t('catalog.liveBody')}</p>
-              </motion.div>
-            </div>
-
-            <div className="gallery-grid">
-              {catalogItems.map((item, index) => (
-                <motion.article
-                  key={item.id}
-                  className="gallery-card"
-                  style={{ '--card-image': `url("${catalogVisuals[item.id]}")` }}
-                  {...riseUp(index * 0.06)}
-                >
-                  <div className="gallery-content">
-                    <div className="gallery-badges">
-                      <span>{t(`catalog.groups.${item.group}`)}</span>
-                      <span>{t(`catalog.items.${item.id}.metric`)}</span>
-                    </div>
-                    <h3>{t(`catalog.items.${item.id}.title`)}</h3>
-                    <p>{t(`catalog.items.${item.id}.summary`)}</p>
-                  </div>
-                </motion.article>
-              ))}
-            </div>
-          </div>
+          <HortibioCatalog />
         </section>
-
-        <HortibioCatalog />
 
         <section className="flow-section" id="flow">
           <div className="section-frame section-frame-soft">

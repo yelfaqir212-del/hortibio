@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Tinos:wght@400;700&family=Playfair+Display:wght@400;600;700;900&display=swap');
 
 :root {
   color-scheme: light;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Playfair Display', serif;
   --ink: #17120d;
   --text: #2d271f;
   --muted: #6d6558;
@@ -82,143 +81,6 @@
   --contact-email-border: rgba(40, 120, 186, 0.18);
   --contact-email-color: #1d5c8e;
   --contact-email-hover: rgba(29, 92, 142, 0.14);
-}
-
-/* Font override hooks for the floating font picker */
-html[data-font='dm'] {
-  font-family: 'DM Serif Display', serif;
-}
-
-html[data-font='tinos'] {
-  font-family: 'Tinos', serif;
-}
-
-html[data-font='playfair'] {
-  font-family: 'Playfair Display', serif;
-}
-
-/* Floating font picker styles (keeps visual aesthetic) */
-.font-picker {
-  position: fixed;
-  right: 1.25rem;
-  bottom: 1.5rem;
-  z-index: 80;
-  display: grid;
-  gap: 0.6rem;
-  align-items: end;
-}
-
-.font-picker-btn {
-  width: 3.6rem;
-  height: 3.6rem;
-  border-radius: 50%;
-  border: 1px solid var(--panel-border);
-  background: var(--panel-bg);
-  color: var(--olive-deep);
-  display: inline-grid;
-  place-items: center;
-  box-shadow: var(--header-shadow);
-  cursor: pointer;
-  transition: transform 180ms ease, box-shadow 180ms ease;
-}
-
-.font-picker-btn:active {
-  transform: scale(0.98);
-}
-
-.font-picker-bubbles {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.55rem;
-  pointer-events: none;
-}
-
-.font-picker.open .font-picker-bubbles {
-  pointer-events: auto;
-}
-
-.font-bubble {
-  height: 2.6rem;
-  min-width: 2.6rem;
-  padding: 0 0.6rem;
-  border-radius: 999px;
-  border: 1px solid var(--panel-border);
-  background: var(--surface-card);
-  color: var(--ink);
-  display: inline-grid;
-  place-items: center;
-  font-size: 0.9rem;
-  cursor: pointer;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-  transform: translateY(6px) scale(0.96);
-  opacity: 0;
-  transition: transform 220ms cubic-bezier(.22,1,.36,1), opacity 220ms ease;
-}
-
-.font-picker.open .font-bubble {
-  transform: translateY(0) scale(1);
-  opacity: 1;
-}
-
-.font-label {
-  display: block;
-  font-size: 0.78rem;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-/* Keep layout intact on small screens */
-@media (max-width: 520px) {
-  .font-picker { right: 0.75rem; bottom: 1rem; }
-  .font-picker-btn { width: 3.2rem; height: 3.2rem; }
-  .font-bubble { width: 2.2rem; height: 2.2rem; }
-}
-
-/* When picker is inside the header, make it inline and pop upward */
-.site-header .font-picker {
-  position: relative;
-  right: auto;
-  bottom: auto;
-  display: inline-grid;
-  align-items: center;
-  gap: 0.4rem;
-  z-index: 85;
-}
-
-.site-header .font-picker-bubbles {
-  position: absolute;
-  right: 0;
-  top: calc(100% + 0.5rem);
-  flex-direction: row;
-  align-items: center;
-  gap: 0.45rem;
-}
-
-.site-header .font-picker-btn {
-  width: 3rem;
-  height: 3rem;
-  font-size: 0.95rem;
-}
-
-.site-header .font-bubble {
-  height: 2.4rem;
-  min-width: 2.4rem;
-  padding: 0 0.4rem;
-  font-size: 0.8rem;
-}
-
-/* On small screens, stack bubbles vertically to avoid overflow */
-@media (max-width: 640px) {
-  .site-header .font-picker-bubbles {
-    flex-direction: column;
-    right: 0.25rem;
-    top: calc(100% + 0.5rem);
-  }
-
-  .site-header .font-picker {
-    gap: 0.3rem;
-  }
 }
 
 :root[data-theme='dark'] {
@@ -757,7 +619,7 @@ section[id] {
 .gallery-card h3,
 .ceo-copy h2 {
   margin: 0;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: inherit;
   font-weight: 600;
   letter-spacing: -0.04em;
   line-height: 0.94;
@@ -1173,7 +1035,7 @@ section[id] {
 .hortibio-catalog-copy h2 {
   margin: 1rem 0 0;
   color: var(--ink);
-  font-family: 'Cormorant Garamond', serif;
+  font-family: inherit;
   font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 600;
   line-height: 0.94;
