@@ -1,8 +1,8 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
-const catalogPdf = '/hortibio-catalog.pdf';
+const catalogPdf = `${import.meta.env.BASE_URL}hortibio-catalog.pdf`;
 const pageCount = 19;
 
 export function HortibioCatalog() {
@@ -10,6 +10,7 @@ export function HortibioCatalog() {
   const [page, setPage] = useState(1);
   const [direction, setDirection] = useState(1);
   const [isTurning, setIsTurning] = useState(false);
+  const touchStartX = useRef(null);
 
   const pageUrl = useMemo(
     () => `${catalogPdf}#page=${page}&toolbar=0&navpanes=0&view=FitH`,
@@ -28,6 +29,21 @@ export function HortibioCatalog() {
     setDirection(nextPage > page ? 1 : -1);
     setIsTurning(true);
     window.setTimeout(() => setPage(nextPage), 250);
+  };
+
+  const handleTouchStart = (event) => {
+    touchStartX.current = event.changedTouches[0]?.clientX ?? null;
+  };
+
+  const handleTouchEnd = (event) => {
+    if (touchStartX.current === null) return;
+
+    const endX = event.changedTouches[0]?.clientX ?? touchStartX.current;
+    const distance = endX - touchStartX.current;
+    touchStartX.current = null;
+
+    if (Math.abs(distance) < 48) return;
+    turnTo(distance < 0 ? page + 1 : page - 1);
   };
 
   return (
@@ -49,19 +65,19 @@ export function HortibioCatalog() {
         </div>
 
         <motion.div
-          className={`grimoire ${isTurning ? 'is-turning' : ''}`}
-          initial={{ opacity: 0, y: 36, rotateX: 4 }}
-          whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+          className={`ipad-catalog ${isTurning ? 'is-turning' : ''}`}
+          initial={{ opacity: 0, y: 36, scale: 0.97 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="grimoire-spine" aria-hidden="true" />
-          <div className="grimoire-topbar">
+          <div className="ipad-camera" aria-hidden="true" />
+          <div className="ipad-topbar">
             <span>{t('hortibioCatalog.readerLabel')}</span>
             <strong>{t('hortibioCatalog.pageStatus', { page, total: pageCount })}</strong>
           </div>
 
-          <div className="grimoire-stage">
+          <div className="ipad-screen">
             <iframe
               key={page}
               className="catalog-pdf-frame"
@@ -69,16 +85,22 @@ export function HortibioCatalog() {
               title={t('hortibioCatalog.frameTitle')}
               loading="lazy"
             />
+            <div
+              className="catalog-swipe-layer"
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+              aria-hidden="true"
+            />
 
             <AnimatePresence>
               {isTurning ? (
                 <motion.div
                   key={`${page}-${direction}`}
-                  className={`turning-page ${direction > 0 ? 'next' : 'prev'}`}
-                  initial={{ rotateY: direction > 0 ? 0 : -178, opacity: 0.95 }}
-                  animate={{ rotateY: direction > 0 ? -178 : 0, opacity: [0.95, 1, 0.35] }}
+                  className={`swipe-page ${direction > 0 ? 'next' : 'prev'}`}
+                  initial={{ x: direction > 0 ? '42%' : '-42%', opacity: 0.35, scale: 0.98 }}
+                  animate={{ x: 0, opacity: [0.35, 0.88, 0], scale: [0.98, 1, 1] }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.72, ease: [0.2, 0.82, 0.2, 1] }}
+                  transition={{ duration: 0.58, ease: [0.2, 0.82, 0.2, 1] }}
                 >
                   <span />
                 </motion.div>
@@ -86,10 +108,10 @@ export function HortibioCatalog() {
             </AnimatePresence>
           </div>
 
-          <div className="grimoire-controls">
+          <div className="ipad-controls">
             <button
               type="button"
-              className="grimoire-arrow"
+              className="ipad-arrow"
               onClick={() => turnTo(page - 1)}
               disabled={page === 1}
               aria-label={t('hortibioCatalog.previous')}
@@ -97,13 +119,13 @@ export function HortibioCatalog() {
               <span aria-hidden="true">{'<'}</span>
             </button>
 
-            <div className="grimoire-progress" aria-hidden="true">
+            <div className="ipad-progress" aria-hidden="true">
               <span style={{ width: `${(page / pageCount) * 100}%` }} />
             </div>
 
             <button
               type="button"
-              className="grimoire-arrow"
+              className="ipad-arrow"
               onClick={() => turnTo(page + 1)}
               disabled={page === pageCount}
               aria-label={t('hortibioCatalog.next')}
@@ -111,6 +133,7 @@ export function HortibioCatalog() {
               <span aria-hidden="true">{'>'}</span>
             </button>
           </div>
+          <div className="ipad-home-indicator" aria-hidden="true" />
         </motion.div>
       </div>
     </div>
