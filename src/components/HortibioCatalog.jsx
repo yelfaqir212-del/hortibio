@@ -50,18 +50,7 @@ export function HortibioCatalog() {
     <div className="hortibio-catalog-section">
       <div className="hortibio-catalog-shell">
         <div className="hortibio-catalog-copy">
-          <span className="section-eyebrow">{t('hortibioCatalog.eyebrow')}</span>
           <h2>{t('hortibioCatalog.title')}</h2>
-          <p>{t('hortibioCatalog.lead')}</p>
-
-          <div className="hortibio-catalog-actions">
-            <a className="button-primary" href={catalogPdf} target="_blank" rel="noreferrer">
-              {t('hortibioCatalog.openPdf')}
-            </a>
-            <a className="button-secondary catalog-download" href={catalogPdf} download>
-              {t('hortibioCatalog.downloadPdf')}
-            </a>
-          </div>
         </div>
 
         <motion.div
@@ -72,10 +61,6 @@ export function HortibioCatalog() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="ipad-camera" aria-hidden="true" />
-          <div className="ipad-topbar">
-            <span>{t('hortibioCatalog.readerLabel')}</span>
-            <strong>{t('hortibioCatalog.pageStatus', { page, total: pageCount })}</strong>
-          </div>
 
           <div className="ipad-screen">
             <iframe

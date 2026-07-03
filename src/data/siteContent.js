@@ -1,7 +1,6 @@
 export const languages = [
   { code: 'fr', label: 'FR' },
   { code: 'en', label: 'EN' },
-  { code: 'ar', label: 'AR' },
 ];
 
 export const viewKeys = ['home', 'products'];

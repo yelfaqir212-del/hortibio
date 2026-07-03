@@ -70,8 +70,8 @@ const fr = {
     },
   },
   hortibioCatalog: {
-    eyebrow: "Products Catalog",
-    title: "Products Catalog",
+    eyebrow: "Catalogue Produits",
+    title: "Catalogue Produits",
     lead: "Feuilletez le catalogue officiel Horti Bio directement sur le site avec une lecture animee page par page.",
     readerLabel: "Products Catalog",
     pageStatus: "Page {{page}} / {{total}}",
