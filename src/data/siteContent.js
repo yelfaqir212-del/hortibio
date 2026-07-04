@@ -8,7 +8,7 @@ export const viewKeys = ['home', 'products'];
 export const navKeys = ['about', 'flow', 'ceo', 'contact'];
 
 export const heroStats = [
-  { value: '4',    key: 'hero.stats.sectors' },
+  { value: '20+',  key: 'hero.stats.sectors' },
   { value: '120+', key: 'hero.stats.partners' },
   { value: '100%', key: 'hero.stats.certified' },
 ];

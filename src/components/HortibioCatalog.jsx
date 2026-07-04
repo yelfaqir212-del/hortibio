@@ -1,27 +1,128 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import * as pdfjsLib from 'pdfjs-dist';
+import pdfWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
 import { useTranslation } from 'react-i18next';
 
 const catalogPdf = `${import.meta.env.BASE_URL}hortibio-catalog.pdf`;
-const pageCount = 19;
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 export function HortibioCatalog() {
   const { t } = useTranslation();
   const [page, setPage] = useState(1);
+  const [pageCount, setPageCount] = useState(19);
   const [direction, setDirection] = useState(1);
   const [isTurning, setIsTurning] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [renderError, setRenderError] = useState('');
+  const canvasRef = useRef(null);
+  const screenRef = useRef(null);
+  const pdfRef = useRef(null);
   const touchStartX = useRef(null);
-
-  const pageUrl = useMemo(
-    () => `${catalogPdf}#page=${page}&toolbar=0&navpanes=0&view=FitH`,
-    [page]
-  );
+  const renderTaskRef = useRef(null);
+  const [screenSize, setScreenSize] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
     if (!isTurning) return undefined;
     const timer = window.setTimeout(() => setIsTurning(false), 760);
     return () => window.clearTimeout(timer);
   }, [isTurning, page]);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    setIsLoading(true);
+    pdfjsLib
+      .getDocument(catalogPdf)
+      .promise.then((pdf) => {
+        if (!isMounted) return;
+        pdfRef.current = pdf;
+        setPageCount(pdf.numPages);
+        setRenderError('');
+      })
+      .catch(() => {
+        if (!isMounted) return;
+        setRenderError(t('hortibioCatalog.renderError'));
+      })
+      .finally(() => {
+        if (isMounted) setIsLoading(false);
+      });
+
+    return () => {
+      isMounted = false;
+      renderTaskRef.current?.cancel();
+      pdfRef.current?.destroy();
+    };
+  }, [t]);
+
+  useEffect(() => {
+    const screen = screenRef.current;
+    if (!screen) return undefined;
+
+    const updateSize = () => {
+      const rect = screen.getBoundingClientRect();
+      setScreenSize({ width: rect.width, height: rect.height });
+    };
+
+    updateSize();
+    const observer = new ResizeObserver(updateSize);
+    observer.observe(screen);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const pdf = pdfRef.current;
+    const canvas = canvasRef.current;
+    if (!pdf || !canvas || !screenSize.width || !screenSize.height) return undefined;
+
+    let isCancelled = false;
+
+    const renderPage = async () => {
+      try {
+        renderTaskRef.current?.cancel();
+        const pdfPage = await pdf.getPage(page);
+        if (isCancelled) return;
+
+        const baseViewport = pdfPage.getViewport({ scale: 1 });
+        const availableWidth = screenSize.width;
+        const availableHeight = screenSize.height;
+        const scale = Math.min(
+          availableWidth / baseViewport.width,
+          availableHeight / baseViewport.height
+        );
+        const viewport = pdfPage.getViewport({ scale });
+        const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+        const context = canvas.getContext('2d');
+
+        canvas.width = Math.floor(viewport.width * pixelRatio);
+        canvas.height = Math.floor(viewport.height * pixelRatio);
+        canvas.style.width = `${viewport.width}px`;
+        canvas.style.height = `${viewport.height}px`;
+
+        context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+        context.clearRect(0, 0, viewport.width, viewport.height);
+
+        const renderTask = pdfPage.render({ canvasContext: context, viewport });
+        renderTaskRef.current = renderTask;
+        await renderTask.promise;
+
+        if (!isCancelled) setRenderError('');
+      } catch (error) {
+        if (error?.name !== 'RenderingCancelledException' && !isCancelled) {
+          setRenderError(t('hortibioCatalog.renderError'));
+        }
+      }
+    };
+
+    renderPage();
+
+    return () => {
+      isCancelled = true;
+      renderTaskRef.current?.cancel();
+    };
+  }, [page, screenSize, t]);
 
   const turnTo = (nextPage) => {
     if (nextPage < 1 || nextPage > pageCount || nextPage === page) return;
@@ -65,20 +166,28 @@ export function HortibioCatalog() {
         >
           <div className="ipad-camera" aria-hidden="true" />
 
-          <div className="ipad-screen">
-            <iframe
+          <div
+            className="ipad-screen"
+            ref={screenRef}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
+            <canvas
               key={page}
-              className="catalog-pdf-frame"
-              src={pageUrl}
-              title={t('hortibioCatalog.frameTitle')}
-              loading="lazy"
+              className="catalog-page-canvas"
+              ref={canvasRef}
+              aria-label={t('hortibioCatalog.frameTitle')}
             />
-            <div
-              className="catalog-swipe-layer"
-              onTouchStart={handleTouchStart}
-              onTouchEnd={handleTouchEnd}
-              aria-hidden="true"
-            />
+
+            {isLoading ? <div className="catalog-render-state">{t('hortibioCatalog.loading')}</div> : null}
+            {renderError ? (
+              <div className="catalog-render-state">
+                <span>{renderError}</span>
+                <a href={catalogPdf} target="_blank" rel="noreferrer">
+                  {t('hortibioCatalog.openPdf')}
+                </a>
+              </div>
+            ) : null}
 
             <AnimatePresence>
               {isTurning ? (

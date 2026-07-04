@@ -8,7 +8,6 @@ import { HortibioCatalog } from './components/HortibioCatalog';
 import {
   aboutTagKeys,
   advantageIds,
-  heroPillKeys,
   heroStats,
   languages,
   processStepIds,
@@ -16,6 +15,7 @@ import {
 } from './data/siteContent';
 
 const navItems = ['about', 'catalog', 'flow', 'ceo', 'contact'];
+const heroSectorIds = ['certifiedPlants', 'hailNet', 'polesTubes', 'accessories', 'windMachine'];
 
 const heroVideos = ['/VD01.mp4', '/Vd02.mp4', '/VD03.mp4'];
 const themeStorageKey = 'hortibio-theme';
@@ -300,16 +300,13 @@ function App() {
               </div>
 
               <div className="hero-aside">
-                <div className="hero-note">
-                  <span className="hero-note-label">{t('hero.panelTitle')}</span>
-                  <p>{t('hero.panelCopy')}</p>
-                  <small>{t('hero.panelFootnote')}</small>
-                </div>
-
-                <div className="hero-pills">
-                  {heroPillKeys.map((key) => (
-                    <span key={key}>{t(key)}</span>
-                  ))}
+                <div className="hero-sector-card">
+                  <span className="hero-note-label">{t('hero.sectors.title')}</span>
+                  <ul className="hero-sector-list">
+                    {heroSectorIds.map((id) => (
+                      <li key={id}>{t(`hero.sectors.items.${id}`)}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>

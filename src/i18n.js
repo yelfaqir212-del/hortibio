@@ -21,19 +21,29 @@ const fr = {
   },
   hero: {
     kicker:       "Votre partenaire de référence en solutions agricoles au Maroc",
-    title:        "Des solutions complètes pour une agriculture performante, durable et résiliente.",
+    title:        "Professionnalisme, transparence, engagement, qualité.",
     lead:         "Horti Bio accompagne les agriculteurs marocains avec des plants certifiés, des solutions de protection des cultures et des structures agricoles de qualité — pour que chaque exploitation produise plus, mieux et durablement.",
     secondary:    "Contactez-nous",
     panelTitle:   "Notre mission",
     panelCopy:    "Accompagner chaque agriculteur dans toutes les dimensions de son exploitation, du plant à la structure.",
     panelFootnote:"Plantes biologiques · Filets de protection · Structures agricoles",
+    sectors: {
+      title: "Nos secteurs d'activité",
+      items: {
+        certifiedPlants: "Plantes certifiées",
+        hailNet: "Filet anti-grêle",
+        polesTubes: "Poteaux précontraints et tubes galvanisés",
+        accessories: "Accessoires agricoles",
+        windMachine: "Wind machine",
+      },
+    },
     floating: {
       products: "Plantes certifiées",
       plants:   "Protection des cultures",
       routing:  "Structures agricoles",
     },
     stats: {
-      sectors:   "secteurs d'activité",
+      sectors:   "ans d'expérience",
       partners:  "agriculteurs partenaires",
       certified: "plantes certifiées garanties",
     },
@@ -80,6 +90,8 @@ const fr = {
     openPdf: "Ouvrir le PDF",
     downloadPdf: "Telecharger",
     frameTitle: "Catalogue Horti Bio PDF",
+    loading: "Chargement du catalogue...",
+    renderError: "Le catalogue ne peut pas s'afficher ici.",
   },
   catalog: {
     eyebrow:   "Nos produits et services",
@@ -268,19 +280,29 @@ const en = {
   },
   hero: {
     kicker:       'Your reference partner for agricultural solutions in Morocco',
-    title:        'Complete solutions for high-performance, sustainable and resilient farming.',
+    title:        'Professionalism, transparency, commitment, quality.',
     lead:         'Horti Bio supports Moroccan farmers with certified plants, crop protection solutions, and quality agricultural structures — to produce more, better, and sustainably.',
     secondary:    'Contact us',
     panelTitle:   'Our mission',
     panelCopy:    'Supporting every farmer in all dimensions of their operation, from plant to structure.',
     panelFootnote:'Organic plants · Protective nets · Agricultural structures',
+    sectors: {
+      title: 'Our sectors of activity',
+      items: {
+        certifiedPlants: 'Certified plants',
+        hailNet: 'Anti-hail net',
+        polesTubes: 'Prestressed poles and galvanized tubes',
+        accessories: 'Agricultural accessories',
+        windMachine: 'Wind machine',
+      },
+    },
     floating: {
       products: 'Certified plants',
       plants:   'Crop protection',
       routing:  'Agricultural structures',
     },
     stats: {
-      sectors:   'sectors of activity',
+      sectors:   'years of experience',
       partners:  'farmer partners',
       certified: 'certified plants',
     },
@@ -327,6 +349,8 @@ const en = {
     openPdf: 'Open PDF',
     downloadPdf: 'Download',
     frameTitle: 'Horti Bio catalog PDF',
+    loading: 'Loading catalog...',
+    renderError: 'The catalog cannot be displayed here.',
   },
   catalog: {
     eyebrow:   'Our products and services',
@@ -521,6 +545,16 @@ const ar = {
     panelTitle:   'مهمتنا',
     panelCopy:    'مرافقة كل مزارع في جميع أبعاد استغلاليته، من الشتلة إلى الهيكل.',
     panelFootnote:'شتلات بيولوجية · شبكات حماية · هياكل زراعية',
+    sectors: {
+      title: 'Our sectors of activity',
+      items: {
+        certifiedPlants: 'Certified plants',
+        hailNet: 'Anti-hail net',
+        polesTubes: 'Prestressed poles and galvanized tubes',
+        accessories: 'Agricultural accessories',
+        windMachine: 'Wind machine',
+      },
+    },
     floating: {
       products: 'شتلات معتمدة',
       plants:   'حماية المحاصيل',
@@ -574,6 +608,8 @@ const ar = {
     openPdf: 'Open PDF',
     downloadPdf: 'Download',
     frameTitle: 'Horti Bio catalog PDF',
+    loading: 'Loading catalog...',
+    renderError: 'The catalog cannot be displayed here.',
   },
   catalog: {
     eyebrow:   'منتجاتنا وخدماتنا',
