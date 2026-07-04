@@ -51,6 +51,9 @@ export function HortibioCatalog() {
       <div className="hortibio-catalog-shell">
         <div className="hortibio-catalog-copy">
           <h2>{t('hortibioCatalog.title')}</h2>
+          <a className="catalog-download-button" href={catalogPdf} download>
+            {t('hortibioCatalog.downloadPdf')}
+          </a>
         </div>
 
         <motion.div

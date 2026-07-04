@@ -1007,7 +1007,7 @@ section[id] {
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: clamp(1.25rem, 3vw, 2.5rem);
+  gap: clamp(1rem, 2.4vw, 1.8rem);
   align-items: center;
   justify-items: center;
   padding: clamp(1.4rem, 3vw, 3rem);
@@ -1031,6 +1031,9 @@ section[id] {
 .hortibio-catalog-copy {
   position: relative;
   z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
   text-align: center;
 }
 
@@ -1043,31 +1046,32 @@ section[id] {
   line-height: 0.94;
 }
 
-.hortibio-catalog-copy p {
-  max-width: 36rem;
-  margin: 1.2rem 0 0;
-  color: var(--muted);
-  line-height: 1.8;
+.catalog-download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.8rem;
+  padding: 0.76rem 1.2rem;
+  border: 1px solid rgba(45, 122, 64, 0.18);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #235f2f, #3da854);
+  color: #f0fff4;
+  font-weight: 700;
+  box-shadow: 0 16px 28px rgba(45, 122, 64, 0.2);
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-.hortibio-catalog-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-top: 1.6rem;
-}
-
-.catalog-download {
-  border-color: var(--panel-border);
-  background: var(--panel-bg);
-  color: var(--olive-deep);
+.catalog-download-button:hover,
+.catalog-download-button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 34px rgba(45, 122, 64, 0.26);
 }
 
 .ipad-catalog {
   position: relative;
   isolation: isolate;
-  width: min(100%, 52rem);
-  padding: clamp(1rem, 2vw, 1.35rem);
+  width: min(100%, 68rem);
+  padding: clamp(0.72rem, 1.3vw, 1rem);
   border: 1px solid rgba(255, 255, 255, 0.34);
   border-radius: 34px;
   background:
@@ -1128,9 +1132,13 @@ section[id] {
 
 .ipad-screen {
   position: relative;
-  height: clamp(30rem, 58vw, 43rem);
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: auto;
+  min-height: 30rem;
+  max-height: min(68vh, 43rem);
   overflow: hidden;
-  border: 0.72rem solid #080b0e;
+  border: clamp(0.42rem, 1vw, 0.72rem) solid #080b0e;
   border-radius: 22px;
   background: #f7f4eb;
   box-shadow:
@@ -1143,6 +1151,7 @@ section[id] {
   height: 100%;
   border: 0;
   background: #f8f1df;
+  display: block;
 }
 
 .catalog-swipe-layer {
@@ -1519,24 +1528,6 @@ section[id] {
 
 .contact-email-btn:hover {
   background: var(--contact-email-hover);
-}
-
-.contact-whatsapp-btn {
-  display: inline-flex;
-  background: #25d366;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #fff;
-}
-
-.contact-whatsapp-btn:hover {
-  background: #1ebe58;
-}
-
-@media (max-width: 768px) {
-  /* On small screens hide WhatsApp and keep only email */
-  .contact-whatsapp-btn {
-    display: none;
-  }
 }
 
 .contact-tags {
@@ -2086,10 +2077,17 @@ section[id] {
 
   .ipad-catalog {
     border-radius: 22px;
+    width: 100%;
+    padding: 0.62rem;
   }
 
   .ipad-screen {
-    height: min(34rem, 105vw);
+    aspect-ratio: 4 / 5.4;
+    min-height: 0;
+    max-height: none;
+    height: auto;
+    border-width: 0.4rem;
+    border-radius: 18px;
   }
 
   .catalog-swipe-layer {
