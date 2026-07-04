@@ -249,6 +249,10 @@ img.contact-logo {
   min-width: 0;
 }
 
+.site-header .brand-lockup {
+  transform: translateY(3px);
+}
+
 .brand-mark {
   display: inline-grid;
   place-items: center;
@@ -867,6 +871,33 @@ section[id] {
   border-radius: 30px;
   background: var(--story-bg);
   border: 1px solid var(--panel-border);
+}
+
+.story-logo-stage {
+  min-height: 18rem;
+  display: grid;
+  place-items: center;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at center, rgba(45, 122, 64, 0.12), transparent 42%),
+    var(--story-bg);
+  border: 1px solid var(--panel-border);
+  overflow: hidden;
+}
+
+.story-spinning-logo {
+  width: min(15rem, 58%);
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: 50%;
+  filter: drop-shadow(0 24px 34px rgba(45, 122, 64, 0.22));
+  animation: storyLogoSpin 14s linear infinite;
+}
+
+@keyframes storyLogoSpin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .story-emphasis p {

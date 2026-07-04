@@ -6,7 +6,6 @@ import { ContactParticles } from './components/ContactParticles';
 import { SiamChat } from './components/SiamChat';
 import { HortibioCatalog } from './components/HortibioCatalog';
 import {
-  aboutTagKeys,
   advantageIds,
   languages,
   processStepIds,
@@ -319,14 +318,8 @@ function App() {
                 <SectionTitle eyebrow={t('about.eyebrow')} title={t('about.title')} text={t('about.lead')} />
               </motion.div>
 
-              <motion.div className="story-emphasis" {...riseUp(0.1)}>
-                <p className="story-body">{t('about.body')}</p>
-
-                <div className="story-tags">
-                  {aboutTagKeys.map((key) => (
-                    <span key={key}>{t(key)}</span>
-                  ))}
-                </div>
+              <motion.div className="story-logo-stage" {...riseUp(0.1)}>
+                <img src="/logohortibio.svg" alt="Hortibio" className="story-spinning-logo" />
               </motion.div>
             </div>
 
