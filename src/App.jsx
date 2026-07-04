@@ -313,13 +313,9 @@ function App() {
 
         <section className="story-section" id="about">
           <div className="section-frame section-frame-light">
-            <div className="story-copy-grid">
+            <div className="story-copy-grid story-copy-grid-single">
               <motion.div className="story-copy" {...riseUp()}>
                 <SectionTitle eyebrow={t('about.eyebrow')} title={t('about.title')} text={t('about.lead')} />
-              </motion.div>
-
-              <motion.div className="story-logo-stage" {...riseUp(0.1)}>
-                <img src="/logohortibio.svg" alt="Hortibio" className="story-spinning-logo" />
               </motion.div>
             </div>
 
