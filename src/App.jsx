@@ -8,7 +8,6 @@ import { HortibioCatalog } from './components/HortibioCatalog';
 import {
   aboutTagKeys,
   advantageIds,
-  heroStats,
   languages,
   processStepIds,
   sustainabilityIds,
@@ -309,15 +308,6 @@ function App() {
                   </ul>
                 </div>
               </div>
-            </div>
-
-            <div className="hero-stats">
-              {heroStats.map((stat) => (
-                <article key={stat.key} className="stat-card">
-                  <strong>{stat.value}</strong>
-                  <span>{t(stat.key)}</span>
-                </article>
-              ))}
             </div>
           </motion.div>
         </section>

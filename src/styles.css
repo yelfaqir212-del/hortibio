@@ -770,7 +770,8 @@ section[id] {
 .hero-stats {
   position: relative;
   z-index: 2;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(13rem, 18rem);
+  justify-content: start;
 }
 
 .stat-card,
